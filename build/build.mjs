@@ -601,7 +601,18 @@ ${(page.scripts ?? []).map((s) => `<script src="${s}" type="module"></script>`).
  */
 function withBasePath(html) {
   if (!BASE_PATH) return html;
-  return html.replace(/\b(href|src|action)="\/(?!\/)/g, `$1="${BASE_PATH}/`);
+  html = html.replace(/\b(href|src|action)="\/(?!\/)/g, `$1="${BASE_PATH}/`);
+  html = html.replace(/\bsrcset="([^"]*)"/g, (match, value) => {
+    const set = value.split(',').map((part) => {
+      const [url, ...desc] = part.trim().split(/\s+/);
+      if (url.startsWith('/') && !url.startsWith('//')) {
+        return `${BASE_PATH}${url}` + (desc.length ? ' ' + desc.join(' ') : '');
+      }
+      return part.trim();
+    }).join(', ');
+    return `srcset="${set}"`;
+  });
+  return html;
 }
 
 /* ---------------------------------------------------------------------------
