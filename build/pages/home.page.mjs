@@ -95,7 +95,9 @@ export default {
         </div>
       </div>
       <div style="position:relative;display:flex;align-items:center;justify-content:center">
-        <img src="/assets/img/sevilla-italia.png" alt="" width="1079" height="691" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+        <img src="/assets/img/sevilla-italia.png" alt="" width="1079" height="691" loading="lazy" decoding="async"
+             srcset="/assets/img/sevilla-480.webp 480w, /assets/img/sevilla-640.webp 640w, /assets/img/sevilla-960.webp 960w"
+             sizes="(min-width:900px) 45vw, 90vw" style="max-width:100%;height:auto">
       </div>
     </div>
   </div>

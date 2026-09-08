@@ -437,6 +437,25 @@ const ldScript = (obj) =>
   `<script type="application/ld+json">${JSON.stringify(obj, null, 0)}</script>`;
 
 /* ---------------------------------------------------------------------------
+ * Fonts
+ *
+ * Self-hosted woff2 files win if they exist (assets/fonts/fraunces-latin.woff2).
+ * Otherwise we fall back to a non-blocking Google Fonts request so the page
+ * stays usable and Lighthouse is not blocked by a missing asset.
+ * ------------------------------------------------------------------------- */
+
+function renderFonts() {
+  if (assetExists('/assets/fonts/fraunces-latin.woff2')) {
+    return '<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2" crossorigin>';
+  }
+  const gf = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Caveat+Brush&display=swap';
+  return `<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="${gf}" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="${gf}"></noscript>`;
+}
+
+/* ---------------------------------------------------------------------------
  * Page shell
  * ------------------------------------------------------------------------- */
 
@@ -494,6 +513,7 @@ export function renderPage(page) {
     description: esc(page.description),
     canonical,
     hreflang: renderHreflang(alternates),
+    fonts: renderFonts(),
     ogType: page.ogType ?? (page.article ? 'article' : 'website'),
     siteName: data.site.org.legalName,
     ogImage: `${ORIGIN}${ogImagePath}`,
@@ -834,6 +854,15 @@ function copyAssets() {
   cpSync(join(ROOT, 'assets'), join(OUT, 'assets'), { recursive: true });
 }
 
+/** Collapse the three source CSS files into one render-blocking request. */
+function writeSiteCss() {
+  const parts = ['tokens.css', 'base.css', 'components.css']
+    .map((name) => readFileSync(join(ROOT, 'assets', 'css', name), 'utf8'));
+  const out = join(OUT, 'assets', 'css', 'site.css');
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, parts.join('\n'), 'utf8');
+}
+
 function writeRobots() {
   // A preview build asks robots to stay out entirely.
   const body = IS_PREVIEW
@@ -871,6 +900,7 @@ async function main() {
   }
 
   copyAssets();
+  writeSiteCss();
   writeRootRedirect();
   writeSitemap();
   writeFeeds();
