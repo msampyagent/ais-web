@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Asociación Italiani a Siviglia</title>
+<link>https://italianiasiviglia.com/it/</link>
+<atom:link href="https://italianiasiviglia.com/it/feed.xml" rel="self" type="application/rss+xml"/>
+<description>La comunità italiana di Siviglia dal 2010</description>
+<language>it</language>
+<lastBuildDate>Thu, 20 Aug 2026 00:00:00 GMT</lastBuildDate>
+<item>
+<title>Cinque nuove convenzioni per i soci AIS</title>
+<link>https://italianiasiviglia.com/it/notizie/</link>
+<guid isPermaLink="false">news-nuove-convenzioni-2026</guid>
+<pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+<description>Piaceri Italiani, La Cocinera Tremenda, Tomares Dental, Lazzo e MYES si aggiungono ai vantaggi per i soci.</description>
+</item>
+<item>
+<title>Serata di osservazione astronomica</title>
+<link>https://italianiasiviglia.com/it/eventi/osservazione-stelle-2026/</link>
+<guid isPermaLink="false">event-osservazione-stelle-2026</guid>
+<pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
+<description>Uscita serale con telescopio.</description>
+</item>
+<item>
+<title>IX Feria de Italia</title>
+<link>https://italianiasiviglia.com/it/eventi/feria-de-italia-2024/</link>
+<guid isPermaLink="false">event-feria-de-italia-2024</guid>
+<pubDate>Sat, 26 Oct 2024 00:00:00 GMT</pubDate>
+<description>Concorso fotografico, laboratori, cantastorie, esposizione di auto d'epoca, gastronomia italiana, premi e molto altro.</description>
+</item>
+</channel>
+</rss>

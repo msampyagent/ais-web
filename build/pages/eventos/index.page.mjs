@@ -15,7 +15,7 @@
  * structured record; the artboard governs layout and chrome copy. Every
  * such call is listed in IMPLEMENTATION-LOG.md.
  */
-import { data, routes, routeOf, registerRoute, renderPage, writePage, esc, LOCALES } from '../../build.mjs';
+import { data, routes, routeOf, registerRoute, renderPage, writePage, esc, LOCALES, assetExists } from '../../build.mjs';
 
 /* ---------------------------------------------------------------------------
  * Event routes — registered here, at MODULE SCOPE, not inside build().
@@ -415,7 +415,8 @@ export function priceLine(ev, locale) {
  *  poster (a real, descriptive alt — it is the only image on that page). */
 export function posterImg(src, alt, { eager = false } = {}) {
   const loadAttr = eager ? ' decoding="async"' : ' loading="lazy" decoding="async"';
-  return `<img src="${esc(src || '/assets/img/og-default.png')}" alt="${esc(alt)}" width="640" height="800"${loadAttr}>`;
+  const path = assetExists(src) ? src : '/assets/img/og-default.png';
+  return `<img src="${esc(path)}" alt="${esc(alt)}" width="640" height="800"${loadAttr}>`;
 }
 
 export function seriesLabel(seriesId, locale) {

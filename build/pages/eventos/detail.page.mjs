@@ -4,20 +4,26 @@
  * Writes one page per listable event in events.json. Routes are already
  * registered by eventos/index.page.mjs at import time.
  */
-import { data, routeOf, routes, renderPage, writePage, esc, LOCALES } from '../../build.mjs';
+import { data, routeOf, routes, renderPage, writePage, esc, LOCALES, ORIGIN, assetExists } from '../../build.mjs';
 import { T, listableEvents, parseEventDate, detailDatesHTML, priceLine, languageTag, posterImg, sponsorPillHTML, breadcrumb, baseTrail, seriesLabel, SERIES_ROUTE } from './index.page.mjs';
 
-function detailJsonLd(ev, locale) {
+function detailJsonLd(ev, locale, pageUrl) {
   const start = parseEventDate(ev.start);
   const end = parseEventDate(ev.end);
+  const poster = assetExists(ev.poster) ? ev.poster : '/assets/img/og-default.png';
+  const publicPrice = typeof ev.price?.public === 'number' ? ev.price.public : null;
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: ev.title[locale],
     description: ev.summary[locale],
     inLanguage: locale,
-    startDate: start.raw,
-    endDate: end.raw ?? start.raw,
+    url: `${ORIGIN}${pageUrl}`,
+    image: `${ORIGIN}${poster}`,
+    // Dates are emitted only when a full day is known — a "2026-09-TODO"
+    // raw string is not a valid ISO date and would fail validation.
+    ...(start.hasDate ? { startDate: start.date.toISOString() } : {}),
+    ...(end.hasDate ? { endDate: end.date.toISOString() } : {}),
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
@@ -25,7 +31,20 @@ function detailJsonLd(ev, locale) {
       name: ev.venue?.name,
       address: { '@type': 'PostalAddress', addressLocality: ev.venue?.locality },
     },
-    organizer: { '@type': 'Organization', name: data.site.org.legalName },
+    organizer: {
+      '@type': 'Organization',
+      name: data.site.org.legalName,
+      url: `${ORIGIN}/${locale}/`,
+    },
+    ...(publicPrice !== null ? {
+      offers: {
+        '@type': 'Offer',
+        price: publicPrice,
+        priceCurrency: ev.price.currency || 'EUR',
+        availability: 'https://schema.org/InStock',
+        url: ev.registration?.url || `${ORIGIN}${pageUrl}`,
+      },
+    } : {}),
     isAccessibleForFree: Boolean(ev.price?.public === 0 || ev.price?.members === 0),
   };
 }
@@ -143,8 +162,9 @@ export default {
           title: `${esc(ev.title[locale])} — ${data.site.org.legalName}`,
           description: ev.summary[locale],
           breadcrumb: bc,
-          jsonld: [detailJsonLd(ev, locale)],
-          ogImage: ev.poster,
+          jsonld: [detailJsonLd(ev, locale, alternates[locale])],
+          ogImage: assetExists(ev.poster) ? ev.poster : undefined,
+          ogImageAlt: ev.title[locale],
           body: pageHTML(ev, locale),
         }));
       }

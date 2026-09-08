@@ -190,6 +190,30 @@ export function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
+const safeStat = (p) => { try { return statSync(p); } catch { return null; } };
+
+/** True when a root-relative asset path (e.g. /assets/events/x.jpg) exists
+ *  in the repo. Used to fall back to og-default.png instead of shipping a
+ *  broken og:image or <img> reference. */
+export function assetExists(urlPath) {
+  return Boolean(urlPath) && Boolean(safeStat(join(ROOT, urlPath.replace(/^\//, ''))));
+}
+
+/** ISO date (YYYY-MM-DD) of a file's last modification — an honest
+ *  dateModified/lastmod source that is never invented. */
+export function fileDate(metaUrl) {
+  const st = safeStat(fileURLToPath(metaUrl));
+  return st ? st.mtime.toISOString().slice(0, 10) : null;
+}
+
+/** Site-wide lastmod fallback: the newest `updated` field across the data
+ *  files, or null when none declare one. */
+const SITE_LASTMOD = Object.values(data)
+  .map((d) => d?.updated)
+  .filter(Boolean)
+  .sort()
+  .at(-1) ?? null;
+
 const CHEVRON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`;
 const CHEVRON_LG = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`;
 
@@ -352,9 +376,14 @@ function renderHreflang(alternates) {
   return lines.join('\n');
 }
 
-/** Organization JSON-LD — on every page, per the IA document. */
+/** Organization JSON-LD — on every page, per the IA document.
+ *  PostalAddress is emitted only once the client replaces the TODO_
+ *  placeholders in site.json with a real address — rule 4.1 forbids
+ *  publishing placeholder values as if they were data. */
 export function organizationLd(locale) {
   const { org, social, tagline } = data.site;
+  const hasRealAddress = org.address
+    && !Object.values(org.address).some((v) => String(v).includes('TODO'));
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -364,7 +393,28 @@ export function organizationLd(locale) {
     email: org.email,
     foundingDate: org.foundedISO,
     description: tagline[locale],
-    logo: `${ORIGIN}/assets/img/ais-logo.png`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${ORIGIN}/assets/img/ais-logo.png`,
+      width: 268,
+      height: 178,
+    },
+    ...(hasRealAddress ? {
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: org.address.street,
+        addressLocality: org.address.locality,
+        ...(org.address.postalCode ? { postalCode: org.address.postalCode } : {}),
+        addressCountry: org.country || 'ES',
+      },
+    } : {}),
+    contactPoint: [{
+      '@type': 'ContactPoint',
+      email: org.email,
+      contactType: 'customer service',
+      availableLanguage: ['es', 'it'],
+    }],
+    knowsLanguage: ['es', 'it'],
     areaServed: { '@type': 'City', name: org.city },
     sameAs: social.map((s) => s.url),
   };
@@ -400,7 +450,16 @@ const ldScript = (obj) =>
  * @param {string} [page.activeNav] top-level nav id to mark active
  * @param {object[]} [page.jsonld]  extra JSON-LD objects
  * @param {string} [page.ogType]
- * @param {string} [page.ogImage]
+ * @param {string} [page.ogImage]   root-relative path; falls back to
+ *                                  og-default.png when missing on disk
+ * @param {number} [page.ogImageWidth]
+ * @param {number} [page.ogImageHeight]
+ * @param {string} [page.ogImageAlt]
+ * @param {object} [page.article]   { published, modified } ISO dates —
+ *                                  emits article:* meta and og:type=article
+ * @param {string} [page.lastmod]   ISO date for the sitemap <lastmod>
+ * @param {boolean} [page.noindex]  emit robots noindex,nofollow and keep the
+ *                                  page out of the sitemap (placeholder pages)
  * @param {Array}  [page.breadcrumb] [{label, href}]
  */
 export function renderPage(page) {
@@ -412,21 +471,43 @@ export function renderPage(page) {
   const ld = [organizationLd(locale), ...(page.jsonld ?? [])];
   if (page.breadcrumb?.length) ld.push(breadcrumbLd(locale, page.breadcrumb));
 
+  // A declared og:image that is not on disk is a broken reference — fall
+  // back to the default card rather than ship a 404 to social crawlers.
+  const ogImagePath = page.ogImage && assetExists(page.ogImage)
+    ? page.ogImage
+    : '/assets/img/og-default.png';
+  const isDefaultOg = ogImagePath === '/assets/img/og-default.png';
+
+  pageSeo.set(alternates[locale], {
+    image: page.ogImage && !isDefaultOg ? ogImagePath : null,
+    lastmod: page.lastmod ?? null,
+    noindex: Boolean(page.noindex),
+  });
+
+  const articleMeta = page.article ? [
+    page.article.published ? `<meta property="article:published_time" content="${esc(page.article.published)}">` : '',
+    page.article.modified ? `<meta property="article:modified_time" content="${esc(page.article.modified)}">` : '',
+  ].filter(Boolean).join('\n') : '';
+
   const head = fill(TPL.head, {
     title: esc(page.title),
     description: esc(page.description),
     canonical,
     hreflang: renderHreflang(alternates),
-    ogType: page.ogType ?? 'website',
+    ogType: page.ogType ?? (page.article ? 'article' : 'website'),
     siteName: data.site.org.legalName,
-    ogImage: `${ORIGIN}${page.ogImage ?? '/assets/img/og-default.png'}`,
+    ogImage: `${ORIGIN}${ogImagePath}`,
+    ogImageWidth: String(page.ogImageWidth ?? (isDefaultOg ? 1200 : 640)),
+    ogImageHeight: String(page.ogImageHeight ?? (isDefaultOg ? 630 : 800)),
+    ogImageAlt: esc(page.ogImageAlt ?? page.title),
+    articleMeta,
     ogLocale: OG_LOCALE[locale],
     ogLocaleAlt: `<meta property="og:locale:alternate" content="${OG_LOCALE[other]}">`,
     locale,
     jsonld: ld.map(ldScript).join('\n'),
   });
 
-  const robotsMeta = IS_PREVIEW
+  const robotsMeta = IS_PREVIEW || page.noindex
     ? '<meta name="robots" content="noindex, nofollow">\n'
     : '';
 
@@ -509,6 +590,10 @@ function withBasePath(html) {
 
 const written = [];
 
+/** urlPath -> { image, lastmod, noindex } — recorded by renderPage so the
+ *  sitemap can carry <lastmod> and image extensions without a second pass. */
+const pageSeo = new Map();
+
 export function writePage(urlPath, html) {
   const out = join(OUT, urlPath.replace(/^\//, ''), 'index.html');
   mkdirSync(dirname(out), { recursive: true });
@@ -533,8 +618,6 @@ function findPageModules(dir) {
     return entry.endsWith('.page.mjs') ? [full] : [];
   });
 }
-
-const safeStat = (p) => { try { return statSync(p); } catch { return null; } };
 
 /* ---------------------------------------------------------------------------
  * Root redirect, sitemap, robots
@@ -573,35 +656,172 @@ ${LOCALES.map((l) => `<link rel="alternate" hreflang="${l}" href="${ORIGIN}/${l}
 }
 
 function writeSitemap() {
-  // One <url> per page, each carrying xhtml:link alternates for both locales.
+  // One <url> per page, each carrying xhtml:link alternates for both
+  // locales, a <lastmod> and an image extension when the page declared a
+  // real og:image. noindex placeholder pages are excluded.
+  const indexable = written.filter((p) => !pageSeo.get(p)?.noindex);
   const groups = new Map();
-  for (const p of written) {
+  for (const p of indexable) {
     const id = [...routes.entries()].find(([, r]) => Object.values(r).includes(p));
     const key = id ? id[0] : p;
     if (!groups.has(key)) groups.set(key, id ? id[1] : { [p.slice(1, 3)]: p });
   }
 
+  const urlEntry = (loc, alts, { lastmod, image } = {}) => {
+    const links = LOCALES
+      .filter((x) => alts[x])
+      .map((x) => `    <xhtml:link rel="alternate" hreflang="${x}" href="${ORIGIN}${alts[x]}"/>`)
+      .join('\n');
+    return `  <url>
+    <loc>${ORIGIN}${loc}</loc>
+${links ? `${links}\n` : ''}    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${alts[DEFAULT_LOCALE] ?? alts[loc.slice(1, 3)] ?? loc}"/>
+${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ''}${image ? `    <image:image><image:loc>${ORIGIN}${image}</image:loc></image:image>\n` : ''}  </url>`;
+  };
+
+  // The root URL redirects to /es/ or /it/; it is listed so crawlers see
+  // the language entry points from the sitemap itself.
+  const root = urlEntry('/', Object.fromEntries(LOCALES.map((l) => [l, `/${l}/`])), { lastmod: SITE_LASTMOD });
+
   const urls = [...groups.values()].flatMap((alts) =>
-    LOCALES.filter((l) => alts[l] && written.includes(alts[l])).map((l) => {
-      const links = LOCALES
-        .filter((x) => alts[x])
-        .map((x) => `    <xhtml:link rel="alternate" hreflang="${x}" href="${ORIGIN}${alts[x]}"/>`)
-        .join('\n');
-      return `  <url>
-    <loc>${ORIGIN}${alts[l]}</loc>
-${links}
-    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${alts[DEFAULT_LOCALE]}"/>
-  </url>`;
+    LOCALES.filter((l) => alts[l] && indexable.includes(alts[l])).map((l) => {
+      const seo = pageSeo.get(alts[l]) ?? {};
+      return urlEntry(alts[l], alts, { lastmod: seo.lastmod ?? SITE_LASTMOD, image: seo.image });
     })
   );
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${root}
 ${urls.join('\n')}
 </urlset>
 `;
   writeFileSync(join(OUT, 'sitemap.xml'), xml, 'utf8');
+}
+
+/* ---------------------------------------------------------------------------
+ * RSS feeds — /es/feed.xml and /it/feed.xml
+ *
+ * Latest published news plus events that have a parseable date. Events
+ * whose start is still "TODO_…" are skipped rather than given an invented
+ * pubDate. The <link rel="alternate" type="application/rss+xml"> in
+ * _partials/head.html points here, so these files must always be written.
+ * ------------------------------------------------------------------------- */
+
+function writeFeeds() {
+  for (const locale of LOCALES) {
+    const items = [];
+
+    for (const n of data.news.items.filter((x) => x.status === 'published')) {
+      const d = String(n.date ?? '').match(/\d{4}-\d{2}-\d{2}/)?.[0];
+      if (!d) continue;
+      items.push({
+        title: n.title[locale],
+        link: `${ORIGIN}${routeOf('news', locale)}`,
+        guid: `news-${n.id}`,
+        date: new Date(`${d}T00:00:00Z`),
+        description: n.summary?.[locale] ?? '',
+      });
+    }
+
+    for (const ev of data.events.items) {
+      if (ev.status === 'draft') continue;
+      const r = routes.get(ev.id);
+      const d = String(ev.start ?? '').match(/\d{4}-\d{2}-\d{2}/)?.[0];
+      if (!r || !d) continue;
+      items.push({
+        title: ev.title[locale],
+        link: `${ORIGIN}${r[locale]}`,
+        guid: `event-${ev.id}`,
+        date: new Date(`${d}T00:00:00Z`),
+        description: ev.summary?.[locale] ?? '',
+      });
+    }
+
+    items.sort((a, b) => b.date - a.date);
+    const latest = items.slice(0, 20);
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>${esc(data.site.org.legalName)}</title>
+<link>${ORIGIN}/${locale}/</link>
+<atom:link href="${ORIGIN}/${locale}/feed.xml" rel="self" type="application/rss+xml"/>
+<description>${esc(data.site.tagline[locale])}</description>
+<language>${locale}</language>
+${latest.length ? `<lastBuildDate>${latest[0].date.toUTCString()}</lastBuildDate>\n` : ''}${latest.map((i) => `<item>
+<title>${esc(i.title)}</title>
+<link>${i.link}</link>
+<guid isPermaLink="false">${esc(i.guid)}</guid>
+<pubDate>${i.date.toUTCString()}</pubDate>
+<description>${esc(i.description)}</description>
+</item>`).join('\n')}
+</channel>
+</rss>
+`;
+    writeFileSync(join(OUT, locale, 'feed.xml'), xml, 'utf8');
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * llms.txt / llms-full.txt — AI crawler discovery
+ *
+ * llms.txt is the concise site brief; llms-full.txt lists every indexable
+ * page in both locales. Plain text, no markup beyond Markdown headings.
+ * ------------------------------------------------------------------------- */
+
+function writeLlms() {
+  const { org, tagline, elevatorPitch, social } = data.site;
+
+  const section = (id, locale) => `- [${findNavItem(id).label[locale]}](${ORIGIN}${routeOf(id, locale)})`;
+  const mainSections = ['about', 'events', 'convenios', 'guide', 'news', 'join', 'contact'];
+
+  const brief = `# ${org.legalName} (${org.shortName})
+
+> ${tagline.es} / ${tagline.it}
+
+${elevatorPitch.es}
+
+${elevatorPitch.it}
+
+## Contact
+
+- Email: ${org.email}
+- City: ${org.city}, ${org.region}, ${org.country}
+${social.map((s) => `- ${s.network}: ${s.url}`).join('\n')}
+
+## Languages
+
+- Español: ${ORIGIN}/es/
+- Italiano: ${ORIGIN}/it/
+
+## Main sections (ES)
+
+${mainSections.map((id) => section(id, 'es')).join('\n')}
+
+## Main sections (IT)
+
+${mainSections.map((id) => section(id, 'it')).join('\n')}
+
+## Feeds and metadata
+
+- Sitemap: ${ORIGIN}/sitemap.xml
+- RSS (ES): ${ORIGIN}/es/feed.xml
+- RSS (IT): ${ORIGIN}/it/feed.xml
+`;
+  writeFileSync(join(OUT, 'llms.txt'), brief, 'utf8');
+
+  const indexable = written.filter((p) => !pageSeo.get(p)?.noindex).sort();
+  const full = `# ${org.legalName} — full page index
+
+${elevatorPitch.es}
+
+${LOCALES.map((l) => `## Pages (${l})
+
+${indexable.filter((p) => p.startsWith(`/${l}/`)).map((p) => `- ${ORIGIN}${p}`).join('\n')}`).join('\n\n')}
+`;
+  writeFileSync(join(OUT, 'llms-full.txt'), full, 'utf8');
 }
 
 /**
@@ -653,6 +873,8 @@ async function main() {
   copyAssets();
   writeRootRedirect();
   writeSitemap();
+  writeFeeds();
+  writeLlms();
   writeRobots();
 
   console.log(`Built ${written.length} pages across ${LOCALES.length} locales.`);

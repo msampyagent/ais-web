@@ -53,7 +53,7 @@
  * mockup's excerpt (it adds the two missing sections), so keeping "7"
  * verbatim would under-report it. Documented in IMPLEMENTATION-LOG.md.
  */
-import { data, routes, routeOf, renderPage, writePage, esc, LOCALES } from '../../build.mjs';
+import { data, routes, routeOf, renderPage, writePage, esc, LOCALES, ORIGIN } from '../../build.mjs';
 
 /* ---------------------------------------------------------------------------
  * Icons — 24×24, stroke 1.5, matching the artboard's own inline SVGs.
@@ -304,15 +304,24 @@ export function articleShell({ locale, articleId, lead, joinText, bodyHtml, sect
 /** Article + FAQPage JSON-LD, per 02-information-architecture.md's mapping
  *  for guide pages. Dates are deliberately omitted rather than invented —
  *  nothing in ais-brief/data records when this new copy was authored. */
-export function articleJsonLd(locale, { headline, description }, faqItems) {
+export function articleJsonLd(locale, { headline, description, url, datePublished, dateModified }, faqItems) {
   const ld = [{
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline,
     description,
     inLanguage: locale,
-    author: { '@type': 'Organization', name: data.site.org.legalName },
-    publisher: { '@type': 'Organization', name: data.site.org.legalName },
+    ...(url ? { mainEntityOfPage: { '@type': 'WebPage', '@id': url } } : {}),
+    image: `${ORIGIN}/assets/img/og-default.png`,
+    ...(datePublished ? { datePublished } : {}),
+    ...(dateModified ? { dateModified } : {}),
+    author: { '@type': 'Organization', name: data.site.org.legalName, url: `${ORIGIN}/${locale}/` },
+    publisher: {
+      '@type': 'Organization',
+      name: data.site.org.legalName,
+      url: `${ORIGIN}/${locale}/`,
+      logo: { '@type': 'ImageObject', url: `${ORIGIN}/assets/img/ais-logo.png`, width: 268, height: 178 },
+    },
   }];
   if (faqItems?.length) {
     ld.push({
