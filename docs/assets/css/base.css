@@ -1,0 +1,246 @@
+/* ==========================================================================
+   AIS base — reset, document, typography, links, focus.
+   Loads after tokens.css.
+   ========================================================================== */
+
+/* --- Reset ---------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd, ol, ul {
+  margin: 0;
+}
+
+ul[class], ol[class] { list-style: none; padding: 0; }
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+img { height: auto; }
+
+input, button, textarea, select { font: inherit; color: inherit; }
+
+button { background: none; border: 0; padding: 0; cursor: pointer; }
+
+table { border-collapse: collapse; width: 100%; }
+
+/* --- Document -------------------------------------------------------------- */
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--crema);
+  color: var(--inchiostro);
+  font: var(--t-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Anchored headings clear the sticky header. */
+:target { scroll-margin-top: calc(var(--header-h) + 24px); }
+
+/* --- Typography ------------------------------------------------------------ */
+
+h1, h2, h3, .u-display, .u-card-title {
+  font-variation-settings: var(--fraunces-vars);
+  color: var(--inchiostro);
+  text-wrap: pretty;
+}
+
+.u-display { font: var(--t-display); color: var(--siena); }
+h1 { font: var(--t-h1); text-wrap: balance; }
+h2 { font: var(--t-h2); }
+h3 { font: var(--t-h3); }
+h4 { font: var(--t-h4); color: var(--inchiostro); }
+
+.u-lead    { font: var(--t-lead);  color: var(--grigio); max-width: var(--measure-lead); }
+.u-small   { font: var(--t-small); color: var(--grigio); }
+.u-accent  { font: var(--t-accent); color: var(--siena); }
+
+.u-label {
+  font: var(--t-label);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--grigio);
+}
+.u-label--siena { color: var(--siena); }
+
+p { max-width: var(--measure); }
+p + p { margin-top: 1em; }
+
+strong, b { font-weight: 600; }
+
+code, kbd, samp { font-family: var(--font-mono); font-size: .9em; }
+
+/* Prose blocks: long-form article body. */
+.prose { max-width: var(--measure); }
+.prose > * + * { margin-top: 1.1em; }
+.prose h2 { margin-top: 1.8em; }
+.prose h3 { margin-top: 1.5em; }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: .4em; }
+
+/* Giralda bullet list — the outline replaces the disc marker. */
+.list-giralda { list-style: none; padding: 0; }
+.list-giralda > li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font: var(--t-body);
+  color: var(--inchiostro);
+}
+.list-giralda > li + li { margin-top: 10px; }
+.list-giralda > li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: .3em;
+  background: url("../img/giralda.png") no-repeat center / contain;
+}
+
+/* --- Links ----------------------------------------------------------------- */
+
+a { color: var(--siena); text-decoration: none; }
+a:hover { color: var(--indaco); }
+
+/* Inline links inside running text stay underlined — colour alone is not
+   a sufficient affordance. */
+.prose a,
+p a:not([class]) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+}
+
+/* --- Focus ----------------------------------------------------------------- */
+
+/* Never remove this. Rule 6 of the design system. */
+:focus-visible {
+  outline: 2px solid var(--indaco);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+:focus:not(:focus-visible) { outline: none; }
+
+/* --- Skip link -------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -100px;
+  z-index: 200;
+  background: var(--siena);
+  color: var(--bianco);
+  font: 600 16px/1 var(--font-ui);
+  padding: 14px 20px;
+  border-radius: var(--r-sm);
+  transition: top var(--dur) var(--ease);
+}
+.skip-link:focus { top: 8px; color: var(--bianco); }
+
+/* --- Layout primitives ------------------------------------------------------ */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+.section { padding-block: 72px; }
+.section--crema  { background: var(--crema); }
+.section--avorio { background: var(--avorio); }
+.section--indaco { background: var(--indaco); color: var(--bianco); }
+
+/* On --indaco the heading and body ink invert. */
+.section--indaco h1,
+.section--indaco h2,
+.section--indaco h3 { color: var(--bianco); }
+.section--indaco .u-label { color: var(--sabbia); }
+.section--indaco .u-lead,
+.section--indaco .u-small { color: var(--sabbia); }
+
+@media (max-width: 767px) {
+  .section { padding-block: 48px; }
+}
+
+.grid { display: grid; gap: var(--gap); }
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1023px) {
+  .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+}
+
+/* --- Utilities --------------------------------------------------------------- */
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.u-center { text-align: center; }
+.u-measure { max-width: var(--measure); }
+
+/* Decorative Giralda watermark. Opacity is allowed here and ONLY here:
+   the element carries no text. */
+.watermark {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  opacity: .06;
+}
+.watermark--footer {
+  opacity: .04;
+  filter: brightness(0) invert(1);
+}
+
+/* --- Tricolore rule -----------------------------------------------------------
+   The hairline is not decoration: without it the white segment disappears
+   against --crema. Rule 2 of the design system. */
+
+.tricolore {
+  display: flex;
+  width: 96px;
+  height: 3px;
+  box-shadow: 0 0 0 .5px var(--linea-forte);
+}
+.tricolore > i { flex: 1; }
+.tricolore > i:nth-child(1) { background: var(--verde-illu); }
+.tricolore > i:nth-child(2) { background: var(--bianco); }
+.tricolore > i:nth-child(3) { background: var(--corallo); }
+
+.tricolore--sm { width: 60px; }
+
+/* --- Print --------------------------------------------------------------------- */
+
+@media print {
+  .site-header, .site-footer, .cookie-banner, .skip-link { display: none; }
+  body { background: #fff; color: #000; }
+}

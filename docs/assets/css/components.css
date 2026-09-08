@@ -1,0 +1,942 @@
+/* ==========================================================================
+   AIS components — every state as drawn in AIS Componentes.dc.html
+   and AIS Navegacion.dc.html. Loads after base.css.
+
+   Rule 1: no component here reduces opacity on a block that contains body
+   text. De-emphasis uses --grigio ink or a --muted-surface fill.
+   ========================================================================== */
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: 600 17px/1 var(--font-ui);
+  border-radius: var(--r-sm);
+  text-align: center;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease),
+              transform var(--dur) var(--ease);
+  min-height: 48px;
+}
+
+/* --- Primary --------------------------------------------------------------- */
+.btn--primary {
+  background: var(--siena);
+  color: var(--bianco);
+  padding: 15px 24px;
+}
+.btn--primary:hover {
+  background: var(--siena-hover);
+  color: var(--bianco);
+  box-shadow: var(--sh-btn-hover);
+  transform: translateY(-2px);
+}
+.btn--primary:disabled,
+.btn--primary[aria-disabled="true"] {
+  background: var(--disabled-fill);
+  color: var(--disabled-ink);
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+/* --- Secondary -------------------------------------------------------------
+   13.5px padding compensates the 1.5px border so both buttons are 48px. */
+.btn--secondary {
+  border: 1.5px solid var(--siena);
+  color: var(--siena);
+  padding: 13.5px 24px;
+  background: transparent;
+}
+.btn--secondary:hover {
+  background: var(--sabbia);
+  color: var(--siena);
+}
+.btn--secondary:disabled,
+.btn--secondary[aria-disabled="true"] {
+  border-color: var(--disabled-fill);
+  color: var(--disabled-outline);
+  background: transparent;
+  cursor: not-allowed;
+}
+
+/* --- Ghost ------------------------------------------------------------------ */
+.btn--ghost {
+  color: var(--siena);
+  padding: 15px 8px;
+  background: transparent;
+  border-bottom: 1.5px solid transparent;
+  border-radius: 4px;
+}
+.btn--ghost:hover {
+  color: var(--siena);
+  border-bottom-color: var(--siena);
+}
+.btn--ghost:disabled,
+.btn--ghost[aria-disabled="true"] {
+  color: var(--disabled-outline);
+  border-bottom-color: transparent;
+  cursor: not-allowed;
+}
+
+/* Ghost variant that always shows its rule (style-tile "Ver todo el calendario") */
+.btn--ghost-ruled {
+  border-bottom-color: var(--linea-forte);
+  padding-inline: 6px;
+}
+
+.btn--block { width: 100%; }
+
+/* ==========================================================================
+   Chips / pills — filters and taxonomy
+   ========================================================================== */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--avorio);
+  border: 1px solid var(--linea);
+  color: var(--siena);
+  font: 600 15px/1 var(--font-ui);
+  padding: 11px 18px;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  min-height: 44px;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.chip:hover {
+  background: var(--sabbia);
+  border-color: var(--linea-forte);
+  color: var(--siena);
+}
+.chip[aria-pressed="true"],
+.chip--active {
+  background: var(--siena);
+  border-color: var(--siena);
+  color: var(--bianco);
+  padding: 12px 18px;
+}
+.chip:disabled,
+.chip[aria-disabled="true"] {
+  background: var(--muted-surface);
+  border-color: var(--linea-debole);
+  color: var(--disabled-outline);
+  cursor: not-allowed;
+}
+
+/* Static taxonomy tag — not interactive, smaller. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  background: var(--avorio);
+  border: 1px solid var(--linea);
+  color: var(--siena);
+  font: 600 12px/1 var(--font-ui);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  padding: 8px 11px;
+  border-radius: var(--r-pill);
+}
+.tag--verde {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: var(--bianco);
+}
+
+/* Language chip — IT / ES / IT + ES */
+.tag--lang {
+  font: 600 13px/1 var(--font-ui);
+  padding: 9px 13px;
+}
+
+/* ==========================================================================
+   Stickers (pegatinas) — Caveat Brush, always tilted
+   ========================================================================== */
+
+.sticker {
+  display: inline-block;
+  background: var(--sabbia);
+  color: var(--siena);
+  font: 400 20px/1 var(--font-accent);
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  transform: rotate(-2deg);
+}
+.sticker--outline {
+  background: var(--avorio);
+  border: 1px solid var(--linea-forte);
+}
+.sticker--sm { font-size: 19px; padding: 7px 14px; }
+
+/* ==========================================================================
+   Form fields
+   Label always visible above the field. 48px minimum. Error = colour + icon.
+   ========================================================================== */
+
+.field { display: flex; flex-direction: column; gap: 8px; }
+
+.field__label {
+  font: var(--t-label);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--grigio);
+}
+.field__label .req { color: var(--rosso); margin-left: 2px; }
+
+.field__hint { font: var(--t-small); color: var(--grigio); }
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--linea-forte);
+  border-radius: var(--r-sm);
+  background: var(--crema);
+  color: var(--inchiostro);
+  font: 400 17px/1.4 var(--font-ui);
+  padding: 12px 14px;
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.input::placeholder,
+.textarea::placeholder { color: var(--grigio); }
+
+.input:hover, .select:hover, .textarea:hover { border-color: var(--siena); }
+
+.input:focus, .select:focus, .textarea:focus {
+  border: 2px solid var(--indaco);
+  background: var(--bianco);
+  padding: 11px 13px; /* keep the box the same size as the 1px resting state */
+  outline: 2px solid var(--indaco);
+  outline-offset: 2px;
+}
+
+/* Filled: a field carrying a value sits on white. */
+.input:not(:placeholder-shown),
+.textarea:not(:placeholder-shown) { background: var(--bianco); }
+
+.input:disabled, .select:disabled, .textarea:disabled {
+  background: var(--muted-surface);
+  border-color: var(--linea-debole);
+  color: var(--disabled-outline);
+  cursor: not-allowed;
+}
+
+.textarea { min-height: 96px; resize: vertical; }
+
+.select {
+  appearance: none;
+  padding-right: 44px;
+  /* chevron, stroke 1.5, --siena — matches the 24×24 icon set */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23793421' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+/* --- Error state ------------------------------------------------------------
+   Colour AND icon. Rule 5. */
+.field--error .input,
+.field--error .select,
+.field--error .textarea { border-color: var(--rosso); }
+
+.field__error {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font: var(--t-small);
+  color: var(--rosso);
+}
+.field__error svg { flex: 0 0 auto; }
+
+.field__counter {
+  align-self: flex-end;
+  font: var(--t-small);
+  color: var(--grigio);
+  font-variant-numeric: tabular-nums;
+}
+.field__counter--over { color: var(--rosso); }
+
+/* --- Checkbox ---------------------------------------------------------------- */
+
+.check { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.check input { position: absolute; opacity: 0; width: 0; height: 0; }
+.check__box {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--siena);
+  border-radius: var(--r-xs);
+  display: grid;
+  place-items: center;
+  margin-top: 1px;
+  transition: background var(--dur) var(--ease);
+}
+.check__box svg { opacity: 0; }
+.check input:checked + .check__box { background: var(--siena); }
+.check input:checked + .check__box svg { opacity: 1; }
+.check input:focus-visible + .check__box {
+  outline: 2px solid var(--indaco);
+  outline-offset: 2px;
+}
+.check__text { font: var(--t-body); color: var(--inchiostro); }
+
+/* --- File drop zone ----------------------------------------------------------- */
+
+.dropzone {
+  border: 1.5px dashed var(--linea-forte);
+  border-radius: var(--r-sm);
+  background: var(--crema);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.dropzone:hover,
+.dropzone.is-dragover { border-color: var(--siena); background: var(--avorio); }
+.dropzone__title { font: 600 15px/1.4 var(--font-ui); color: var(--siena); }
+.dropzone__hint { font: var(--t-small); color: var(--grigio); }
+.dropzone__preview { max-height: 64px; width: auto; }
+
+/* --- Progressive disclosure row ("Añadir logo, mapa y redes") ------------------ */
+
+.disclosure {
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  padding: 18px 0;
+}
+.disclosure__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  font: 600 17px/1.4 var(--font-ui);
+  color: var(--siena);
+  min-height: 44px;
+}
+.disclosure__trigger svg { transition: transform var(--dur) var(--ease); }
+.disclosure__trigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+.disclosure__panel { padding-top: 20px; }
+.disclosure__trigger[aria-expanded="false"] + .disclosure__panel { display: none; }
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
+.card {
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--sh-1);
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+a.card:hover,
+.card:has(a:hover) { box-shadow: var(--sh-2); transform: translateY(-2px); }
+
+.card__body { padding: 20px; }
+
+/* --- Event card — 4:5 poster ------------------------------------------------- */
+
+.card-event__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--avorio);
+  display: grid;
+  place-items: center;
+}
+.card-event__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-event__date {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--bianco);
+  border-radius: var(--r-sm);
+  padding: 7px 11px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(121, 52, 33, .06);
+}
+.card-event__day {
+  font: 600 24px/1 var(--font-display);
+  font-variation-settings: var(--fraunces-vars);
+  color: var(--siena);
+}
+.card-event__month {
+  font: 600 12px/1.3 var(--font-ui);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--grigio);
+}
+
+.card__title {
+  font: var(--t-card-title);
+  font-variation-settings: var(--fraunces-vars);
+  color: var(--inchiostro);
+  margin: 0 0 10px;
+}
+
+.card__meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font: 400 14px/1.55 var(--font-ui);
+  color: var(--grigio);
+  margin-bottom: 14px;
+}
+.card__meta svg { flex: 0 0 auto; }
+
+.card__tags { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+/* --- Convenio card ------------------------------------------------------------ */
+
+.card-convenio__logo {
+  height: 120px;
+  background: var(--bianco);
+  border-bottom: 1px solid var(--linea);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.card-convenio__logo img { max-height: 64px; max-width: 100%; object-fit: contain; }
+
+.card-convenio__body { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+
+.card-convenio__deal {
+  border-top: 1px solid var(--linea);
+  padding-top: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.card-convenio__pct {
+  font: 600 44px/1 var(--font-display);
+  font-variation-settings: var(--fraunces-vars);
+  color: var(--rosso);
+}
+.card-convenio__terms { font: 400 15px/1.4 var(--font-ui); color: var(--inchiostro); }
+
+/* --- Vacancy card -------------------------------------------------------------- */
+
+.card-vacancy {
+  background: var(--bianco);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.card-vacancy__commitment {
+  background: var(--avorio);
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+}
+.card-vacancy__commitment dt {
+  font: 600 12px/1.3 var(--font-ui);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--siena);
+  margin-bottom: 4px;
+}
+.card-vacancy__commitment dd {
+  font: 600 18px/1.38 var(--font-ui);
+  color: var(--inchiostro);
+  margin: 0;
+}
+
+/* --- Team card — photo or monogram --------------------------------------------- */
+
+.card-team__media { aspect-ratio: 1; background: var(--sabbia); display: grid; place-items: center; }
+.card-team__media img { width: 100%; height: 100%; object-fit: cover; }
+.card-team__monogram {
+  font: 600 72px/1 var(--font-display);
+  font-variation-settings: var(--fraunces-vars);
+  color: var(--siena);
+}
+.card-team__role {
+  font: 600 12px/1.3 var(--font-ui);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--siena);
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   Trust strip and institutional row
+   ========================================================================== */
+
+.trust {
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.trust__n {
+  font: var(--t-h2);
+  font-variation-settings: var(--fraunces-vars);
+  color: var(--siena);
+}
+.trust__label {
+  font: var(--t-label);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--grigio);
+  margin-top: 6px;
+}
+@media (max-width: 767px) { .trust { grid-template-columns: repeat(2, 1fr); } }
+
+/* Institutional names sit at full opacity in --grigio — never faded. */
+.institutions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.institutions a,
+.institutions span { font: 600 15px/1.3 var(--font-ui); color: var(--grigio); }
+.institutions a:hover { color: var(--indaco); }
+
+/* ==========================================================================
+   Breadcrumb and pagination
+   ========================================================================== */
+
+.breadcrumb { font: var(--t-small); color: var(--grigio); }
+.breadcrumb ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; }
+.breadcrumb li + li::before { content: "/"; margin-right: 6px; color: var(--linea-forte); }
+.breadcrumb a { color: var(--siena); }
+.breadcrumb [aria-current="page"] { color: var(--inchiostro); }
+
+.pagination ul { display: flex; align-items: center; gap: 8px; list-style: none; padding: 0; }
+.pagination a,
+.pagination span {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--linea-forte);
+  color: var(--siena);
+  font: 600 15px/1 var(--font-ui);
+}
+.pagination a:hover { background: var(--avorio); color: var(--siena); }
+.pagination [aria-current="page"] {
+  background: var(--siena);
+  border-color: var(--siena);
+  color: var(--bianco);
+}
+
+/* ==========================================================================
+   Alerts
+   ========================================================================== */
+
+.alert {
+  background: var(--bianco);
+  border: 1px solid;
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font: var(--t-body);
+  color: var(--inchiostro);
+}
+.alert svg { flex: 0 0 auto; }
+.alert--success { border-color: var(--verde); }
+.alert--error   { border-color: var(--rosso); }
+
+/* ==========================================================================
+   Empty state
+   ========================================================================== */
+
+.empty {
+  border: 1.5px dashed var(--linea-forte);
+  border-radius: var(--r-lg);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+/* The Giralda mark is decorative and wordless — opacity is safe here. */
+.empty__mark { height: 72px; width: auto; opacity: .35; margin-bottom: 20px; }
+.empty__title {
+  font: var(--t-h3);
+  font-variation-settings: var(--fraunces-vars);
+  color: var(--inchiostro);
+  margin-bottom: 10px;
+}
+.empty__text { font: var(--t-body); color: var(--grigio); max-width: 40ch; margin-bottom: 24px; }
+
+/* ==========================================================================
+   Accordion (FAQ, collapsible sections)
+   ========================================================================== */
+
+.accordion__item { border-top: 1px solid var(--linea); }
+.accordion__item:last-child { border-bottom: 1px solid var(--linea); }
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 0;
+  text-align: left;
+  font: var(--t-h4);
+  color: var(--inchiostro);
+  min-height: 44px;
+}
+.accordion__trigger:hover { color: var(--siena); }
+.accordion__trigger svg { flex: 0 0 auto; transition: transform var(--dur) var(--ease); }
+.accordion__trigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+.accordion__panel { padding-bottom: 20px; max-width: var(--measure); }
+.accordion__panel[hidden] { display: none; }
+
+/* ==========================================================================
+   Callout — official links inside the practical guide
+   ========================================================================== */
+
+.callout {
+  background: var(--avorio);
+  border-radius: var(--r-md);
+  padding: 24px;
+  max-width: var(--measure);
+}
+.callout__label {
+  font: var(--t-label);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--siena);
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   Site header
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--crema);
+  box-shadow: var(--sh-header);
+}
+
+.site-header__bar {
+  height: var(--header-h);
+  border-bottom: 1px solid var(--linea);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-inline: var(--margin);
+  max-width: var(--wrap);
+  margin-inline: auto;
+  transition: height var(--dur) var(--ease);
+}
+
+/* Compressed on scroll: 72 → 60, hairline swaps for a soft shadow. */
+.site-header.is-scrolled .site-header__bar {
+  height: var(--header-h-scroll);
+  border-bottom-color: transparent;
+  box-shadow: var(--sh-1);
+}
+
+.site-header__brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.site-header__logo { height: 44px; width: auto; transition: height var(--dur) var(--ease); }
+.site-header.is-scrolled .site-header__logo { height: 34px; }
+.site-header.is-scrolled .site-header__brand .tricolore { display: none; }
+
+.nav-primary { display: flex; align-items: center; gap: 26px; }
+.nav-primary__link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font: 500 16px/1 var(--font-ui);
+  color: var(--inchiostro);
+  padding: 26px 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-primary__link:hover { color: var(--siena); }
+.nav-primary__link[aria-expanded="true"],
+.nav-primary__link[aria-current="page"],
+.nav-primary__link.is-active {
+  color: var(--siena);
+  font-weight: 600;
+  border-bottom-color: var(--siena);
+}
+.nav-primary__link svg { transition: transform var(--dur) var(--ease); }
+.nav-primary__link[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+.site-header__utility { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+
+.lang-switch { display: flex; align-items: center; gap: 8px; font: 600 15px/1 var(--font-ui); }
+.lang-switch a { color: var(--grigio); }
+.lang-switch a:hover { color: var(--siena); }
+.lang-switch [aria-current="true"] { color: var(--siena); }
+.lang-switch__sep { color: var(--linea-forte); }
+
+.site-header .btn--primary { padding: 14px 22px; font-size: 16px; white-space: nowrap; min-height: 0; }
+.site-header.is-scrolled .btn--primary { padding: 12px 22px; }
+
+/* --- Dropdown panel ------------------------------------------------------------ */
+
+.dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: var(--bianco);
+  border-bottom: 1px solid var(--linea);
+  box-shadow: 0 12px 32px rgba(121, 52, 33, .07);
+  padding: 40px var(--margin);
+}
+.dropdown[hidden] { display: none; }
+
+.dropdown__inner {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 300px;
+  gap: 48px;
+}
+.dropdown__col { display: flex; flex-direction: column; gap: 20px; }
+
+.dropdown__item { display: flex; gap: 14px; align-items: flex-start; }
+.dropdown__item svg { flex: 0 0 auto; margin-top: 2px; }
+.dropdown__item-title { font: 600 17px/1.4 var(--font-ui); color: var(--inchiostro); }
+.dropdown__item:hover .dropdown__item-title { color: var(--siena); }
+.dropdown__item-desc { font: var(--t-small); color: var(--grigio); }
+
+.dropdown__feature {
+  background: var(--avorio);
+  border-radius: var(--r-md);
+  padding: 24px;
+}
+.dropdown__feature-title {
+  font: var(--t-card-title);
+  font-variation-settings: var(--fraunces-vars);
+  color: var(--inchiostro);
+  margin-bottom: 8px;
+}
+.dropdown__feature-meta { font: var(--t-small); color: var(--grigio); margin-bottom: 16px; }
+.dropdown__feature-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 15px/1 var(--font-ui);
+  color: var(--siena);
+}
+
+/* --- Mobile ---------------------------------------------------------------------- */
+
+.site-header__burger { display: none; }
+
+@media (max-width: 1023px) {
+  .nav-primary, .site-header__utility .lang-switch { display: none; }
+  .site-header__bar { justify-content: space-between; gap: 14px; }
+  .site-header__logo { height: 38px; }
+  .site-header .btn--primary { padding: 13px 16px; font-size: 15px; }
+  .site-header__brand .tricolore { display: none; }
+  .site-header__burger {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    color: var(--siena);
+  }
+}
+
+/* Mobile sheet — full-height panel. */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: var(--crema);
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu[hidden] { display: none; }
+
+.mobile-menu__bar {
+  height: 64px;
+  border-bottom: 1px solid var(--linea);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 20px;
+  flex-shrink: 0;
+}
+.mobile-menu__close { width: 44px; height: 44px; display: grid; place-items: center; color: var(--siena); }
+
+.mobile-menu__lang { padding: 20px; flex-shrink: 0; }
+.lang-toggle {
+  display: flex;
+  border: 1.5px solid var(--siena);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  height: 48px;
+}
+.lang-toggle a {
+  flex: 1;
+  color: var(--siena);
+  font: 600 16px/48px var(--font-ui);
+  text-align: center;
+}
+.lang-toggle a[aria-current="true"] { background: var(--siena); color: var(--bianco); }
+
+.mobile-menu__nav { flex: 1; overflow-y: auto; padding-inline: 20px; }
+.mobile-menu__group { border-top: 1px solid var(--linea); padding: 18px 0; }
+.mobile-menu__group:last-child { border-bottom: 1px solid var(--linea); }
+.mobile-menu__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+  font: 600 20px/1.35 var(--font-ui);
+  color: var(--inchiostro);
+  min-height: 44px;
+}
+.mobile-menu__trigger[aria-expanded="true"] { color: var(--siena); }
+.mobile-menu__trigger svg { transition: transform var(--dur) var(--ease); }
+.mobile-menu__trigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+.mobile-menu__sub { display: flex; flex-direction: column; gap: 2px; padding-left: 4px; margin-top: 14px; }
+.mobile-menu__sub[hidden] { display: none; }
+.mobile-menu__sub a { font: var(--t-body); color: var(--inchiostro); padding: 11px 0; }
+.mobile-menu__sub a:hover { color: var(--siena); }
+
+.mobile-menu__foot {
+  padding: 20px;
+  border-top: 1px solid var(--linea);
+  background: var(--crema);
+  flex-shrink: 0;
+}
+.mobile-menu__social { display: flex; justify-content: center; gap: 20px; margin-top: 18px; color: var(--siena); }
+
+/* ==========================================================================
+   Site footer
+   ========================================================================== */
+
+.site-footer {
+  background: var(--indaco);
+  color: var(--bianco);
+  padding: 80px var(--margin) 32px;
+  position: relative;
+  overflow: hidden;
+}
+.site-footer__inner { position: relative; max-width: var(--wrap); margin-inline: auto; }
+
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+@media (max-width: 1023px) { .site-footer__cols { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 599px)  { .site-footer__cols { grid-template-columns: 1fr; gap: 32px; } }
+
+.site-footer__logo { height: 56px; width: auto; margin-bottom: 16px; }
+.site-footer__tagline { font: var(--t-small); color: var(--sabbia); max-width: 30ch; }
+
+.site-footer__heading {
+  font: var(--t-label);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--sabbia);
+  margin-bottom: 16px;
+}
+.site-footer__list { display: flex; flex-direction: column; gap: 10px; }
+.site-footer__list a { font: var(--t-small); color: var(--bianco); }
+.site-footer__list a:hover { color: var(--sabbia); text-decoration: underline; }
+.site-footer__list a.is-strong { font-weight: 600; }
+
+.site-footer__bottom {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--linea-chiara);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+/* Institutional names on --indaco: --sabbia keeps them legible without
+   dropping opacity on a text block. */
+.site-footer__institutions {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  font: 600 15px/1.3 var(--font-ui);
+}
+.site-footer__institutions a,
+.site-footer__institutions span { color: var(--sabbia); }
+.site-footer__institutions a:hover { color: var(--bianco); }
+
+.site-footer__social { display: flex; align-items: center; gap: 16px; color: var(--bianco); }
+.site-footer__social a { color: var(--bianco); display: grid; place-items: center; width: 44px; height: 44px; }
+.site-footer__social a:hover { color: var(--sabbia); }
+
+.site-footer__legal {
+  margin-top: 20px;
+  font: var(--t-small);
+  color: var(--sabbia);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.site-footer__legal a { color: var(--sabbia); text-decoration: underline; }
+
+/* ==========================================================================
+   Cookie banner — refusal by default, both buttons equal weight
+   ========================================================================== */
+
+.cookie-banner {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 160;
+  padding: 24px var(--margin) 32px;
+  background: transparent;
+}
+.cookie-banner[hidden] { display: none; }
+
+.cookie-banner__inner {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  background: var(--bianco);
+  border: 1px solid var(--linea-forte);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-2);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.cookie-banner__title { font: var(--t-h4); color: var(--inchiostro); margin-bottom: 6px; }
+.cookie-banner__text { font: var(--t-body); color: var(--grigio); max-width: 68ch; }
+.cookie-banner__actions { display: flex; gap: 12px; flex-shrink: 0; }
+
+/* Reject and Accept are visually identical. This is deliberate — do not
+   promote Accept to a filled button. */
+.cookie-banner__actions .btn--secondary { padding: 15.5px 26px; }
+
+@media (max-width: 767px) {
+  .cookie-banner { padding: 16px; }
+  .cookie-banner__inner { flex-direction: column; align-items: stretch; gap: 20px; padding: 20px; }
+  .cookie-banner__actions { flex-wrap: wrap; }
+  .cookie-banner__actions .btn { flex: 1 1 auto; }
+}
