@@ -540,24 +540,30 @@ const safeStat = (p) => { try { return statSync(p); } catch { return null; } };
  * ------------------------------------------------------------------------- */
 
 function writeRootRedirect() {
+  // These are real served paths, so they carry BASE_PATH. They cannot go
+  // through withBasePath(): two of the three live inside a meta refresh and a
+  // <script>, which that attribute-level rewrite deliberately does not touch.
+  const es = `${BASE_PATH}/es/`;
+  const it = `${BASE_PATH}/it/`;
+
   const html = `<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <title>Asociación Italiani a Siviglia</title>
-<link rel="canonical" href="${ORIGIN}/es/">
+${IS_PREVIEW ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<link rel="canonical" href="${ORIGIN}/es/">
 ${LOCALES.map((l) => `<link rel="alternate" hreflang="${l}" href="${ORIGIN}/${l}/">`).join('\n')}
 <link rel="alternate" hreflang="x-default" href="${ORIGIN}/es/">
-<meta http-equiv="refresh" content="0; url=/es/">
+<meta http-equiv="refresh" content="0; url=${es}">
 <script>
   // Prefer the visitor's language when we have a page for it; the meta
   // refresh above is the no-JS fallback and always lands on Spanish.
   var l = (navigator.language || 'es').slice(0, 2);
-  location.replace(l === 'it' ? '/it/' : '/es/');
+  location.replace(l === 'it' ? ${JSON.stringify(it)} : ${JSON.stringify(es)});
 </script>
 </head>
 <body>
-<p>Redirigiendo a <a href="/es/">/es/</a> · <a href="/it/">Italiano</a></p>
+<p>Redirigiendo a <a href="${es}">/es/</a> · <a href="${it}">Italiano</a></p>
 </body>
 </html>
 `;
