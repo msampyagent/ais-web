@@ -1,0 +1,153 @@
+{
+  "_comment": "Events. 'past' records are reconstructed from the AIS Instagram, the blogspot archive and Ayuntamiento de Sevilla press notes — verify dates before publishing. Anything marked TODO is a placeholder. ai-generated",
+  "$schema": "./schemas/event.schema.json",
+  "updated": "2026-09-07",
+  "items": [
+    {
+      "id": "incontro-letterario-il-resto-di-niente",
+      "series": "incontri-letterari",
+      "status": "published",
+      "title": {
+        "it": "Incontro letterario: «Il resto di niente» di Enzo Striano",
+        "es": "Encuentro literario: «Il resto di niente» de Enzo Striano"
+      },
+      "summary": {
+        "it": "Lettura e discussione del romanzo di Enzo Striano sulla rivoluzione napoletana del 1799.",
+        "es": "Lectura y debate de la novela de Enzo Striano sobre la revolución napolitana de 1799."
+      },
+      "start": "2026-09-TODO T19:00",
+      "end": null,
+      "timezone": "Europe/Madrid",
+      "allDay": false,
+      "language": ["it"],
+      "venue": { "name": "TODO_lugar", "address": "TODO", "locality": "Sevilla", "mapsUrl": null },
+      "price": { "members": 0, "public": 0, "currency": "EUR", "note": { "it": "Ingresso libero", "es": "Entrada libre" } },
+      "registration": { "required": true, "type": "email", "url": null, "email": "info@italianiasiviglia.com" },
+      "poster": "/assets/events/2026-09-incontro-letterario.jpg",
+      "gallery": [],
+      "tags": ["cultura", "libri", "soci"],
+      "source": "Instagram @associazioneitalianiasiviglia, 07/09/2026"
+    },
+    {
+      "id": "osservazione-stelle-2026",
+      "series": "escursioni",
+      "status": "past",
+      "title": { "it": "Serata di osservazione astronomica", "es": "Noche de observación astronómica" },
+      "summary": { "it": "Uscita serale con telescopio.", "es": "Salida nocturna con telescopio." },
+      "start": "2026-07-11T21:30",
+      "end": null,
+      "timezone": "Europe/Madrid",
+      "allDay": false,
+      "language": ["it", "es"],
+      "venue": { "name": "TODO", "address": "TODO", "locality": "Provincia de Sevilla", "mapsUrl": null },
+      "price": { "members": null, "public": null, "currency": "EUR", "note": null },
+      "registration": { "required": true, "type": "email", "url": null, "email": "info@italianiasiviglia.com" },
+      "poster": "/assets/events/2026-07-astronomia.jpg",
+      "gallery": [],
+      "tags": ["escursioni", "famiglie"],
+      "source": "Instagram @associazioneitalianiasiviglia, 11/07/2026"
+    },
+    {
+      "id": "feria-de-italia-2026",
+      "series": "feria-de-italia",
+      "status": "draft",
+      "flagship": true,
+      "edition": "X",
+      "title": { "it": "X Feria de Italia", "es": "X Feria de Italia" },
+      "summary": {
+        "it": "Due giorni di gastronomia, musica, teatro, cultura e rievocazioni storiche italiane nel cuore di Siviglia. Ingresso gratuito.",
+        "es": "Dos días de gastronomía, música, teatro, cultura y recreaciones históricas italianas en el corazón de Sevilla. Entrada gratuita."
+      },
+      "start": "TODO_2026-10",
+      "end": "TODO_2026-10",
+      "timezone": "Europe/Madrid",
+      "allDay": true,
+      "language": ["it", "es"],
+      "venue": { "name": "TODO_sede", "address": "TODO", "locality": "Sevilla", "mapsUrl": null },
+      "price": { "members": 0, "public": 0, "currency": "EUR", "note": { "it": "Ingresso gratuito", "es": "Entrada gratuita" } },
+      "registration": { "required": false, "type": "eventbrite", "url": "https://www.eventbrite.es/o/asociacion-italiani-a-siviglia-87854394823", "email": null },
+      "poster": "/assets/events/2026-feria-de-italia.jpg",
+      "gallery": [],
+      "tags": ["feria", "gastronomia", "musica", "teatro", "famiglie", "flagship"],
+      "programme": [],
+      "organisers": ["Asociación Italiani a Siviglia", "Ayuntamiento de Sevilla"],
+      "endorsedBy": ["Consolato Generale d'Italia a Madrid", "Com.It.Es. Madrid"],
+      "sponsors": [],
+      "source": "Extrapolated from the IX edition; confirm with the board."
+    },
+    {
+      "id": "feria-de-italia-2024",
+      "series": "feria-de-italia",
+      "status": "past",
+      "flagship": true,
+      "edition": "IX",
+      "title": { "it": "IX Feria de Italia", "es": "IX Feria de Italia" },
+      "summary": {
+        "it": "Concorso fotografico, laboratori, cantastorie, esposizione di auto d'epoca, gastronomia italiana, premi e molto altro.",
+        "es": "Concurso de fotografía, talleres, cuentacuentos, exposición de coches antiguos, gastronomía italiana, premios y mucho más."
+      },
+      "start": "2024-10-26T11:30",
+      "end": "2024-10-27T18:00",
+      "timezone": "Europe/Madrid",
+      "allDay": true,
+      "language": ["it", "es"],
+      "venue": { "name": "Colegio Marista", "address": "Calle Paraíso, 8", "locality": "Sevilla", "mapsUrl": null },
+      "price": { "members": 0, "public": 0, "currency": "EUR", "note": { "it": "Ingresso gratuito", "es": "Entrada gratuita" } },
+      "registration": { "required": false, "type": "eventbrite", "url": "https://www.eventbrite.es/e/registro-ix-feria-de-italia-939964277457", "email": null },
+      "poster": "/assets/events/2024-ix-feria-de-italia.jpg",
+      "gallery": [],
+      "tags": ["feria", "gastronomia", "musica", "teatro", "famiglie", "flagship"],
+      "programme": [
+        { "day": "2024-10-26", "time": "12:30", "title": "Ceremonia de apertura con representantes de las instituciones locales y de las instituciones italianas en España" },
+        { "day": "2024-10-26", "time": "14:00", "title": "Actuación: lucha de gladiadores", "by": "Asoc. ULPIA AELIA" },
+        { "day": "2024-10-26", "time": "15:00", "title": "«La poesia non si spiega»", "by": "Er Pinto" },
+        { "day": "2024-10-26", "time": "16:00", "title": "«Commedia dell'Arte per tutti» — Encuentro Internacional de Comedia del Arte de Sevilla", "by": "Riccardo Benfatto, Cía Hilo Rojo Teatro" },
+        { "day": "2024-10-26", "time": "16:30", "title": "Actuación «Educando» en Roma", "by": "Asoc. ULPIA AELIA" },
+        { "day": "2024-10-26", "time": "17:30", "title": "Presentación del docufilm «Sotto nuovi cieli»", "by": "Trio Espresso" },
+        { "day": "2024-10-26", "time": "18:00", "title": "Firma del libro «Suffit animus»", "by": "Alfonso Escuadra" },
+        { "day": "2024-10-26", "time": "20:00", "title": "Concierto del Coro Italiano in Spagna" },
+        { "day": "2024-10-26", "time": "21:30", "title": "Concierto Trio Espresso", "by": "Stefano Di Rubbo, Oscar Pantaleone, Martina Mollo" },
+        { "day": "2024-10-27", "time": "12:00", "title": "Conferencia: «Disegno della portada de la Feria 2024»", "by": "Davide Gamboni, arquitecto" },
+        { "day": "2024-10-27", "time": "13:00", "title": "Conferencia: «Técnicas para aprender un idioma rápidamente»", "by": "Federica Trombetta" },
+        { "day": "2024-10-27", "time": "14:00", "title": "«Commedia dell'Arte per tutti»", "by": "Beatriz Prior y Juan Luis, Cía Un Proyecto Corriente" },
+        { "day": "2024-10-27", "time": "16:00", "title": "Concierto de música italiana", "by": "Morgana" }
+      ],
+      "organisers": ["Asociación Italiani a Siviglia", "Ayuntamiento de Sevilla"],
+      "endorsedBy": ["Consolato Generale d'Italia a Madrid", "Com.It.Es. Madrid"],
+      "sponsors": ["Casa degli Italiani de Barcelona", "Maristas", "De Cecco", "Fabbri", "Bolas"],
+      "source": "Official IX Feria de Italia poster reproduced on italianiasiviglia.com"
+    },
+    {
+      "id": "escursione-baelo-claudia-2025",
+      "series": "escursioni",
+      "status": "past",
+      "title": { "it": "Escursione a Baelo Claudia", "es": "Excursión a Baelo Claudia" },
+      "summary": {
+        "it": "Visita al sito archeologico romano di Baelo Claudia, a Bolonia (Tarifa).",
+        "es": "Visita al yacimiento arqueológico romano de Baelo Claudia, en Bolonia (Tarifa)."
+      },
+      "start": "2025-TODO",
+      "end": null,
+      "timezone": "Europe/Madrid",
+      "allDay": true,
+      "language": ["it", "es"],
+      "venue": { "name": "Conjunto Arqueológico Baelo Claudia", "address": "Ensenada de Bolonia", "locality": "Tarifa, Cádiz", "mapsUrl": null },
+      "price": { "members": null, "public": null, "currency": "EUR", "note": null },
+      "registration": { "required": true, "type": "email", "url": null, "email": "info@italianiasiviglia.com" },
+      "poster": "/assets/events/2025-baelo-claudia.jpg",
+      "gallery": ["/assets/events/gallery/baelo-claudia-01.jpg"],
+      "tags": ["escursioni", "cultura", "famiglie"],
+      "source": "italianiasiviglia.com homepage, section «Escursioni»"
+    }
+  ],
+  "series": [
+    { "id": "feria-de-italia", "label": { "es": "Feria de Italia", "it": "Feria de Italia" }, "flagship": true, "description": { "es": "El evento insignia de AIS, con el Ayuntamiento de Sevilla.", "it": "L'evento di punta di AIS, con il Comune di Siviglia." } },
+    { "id": "incontri-letterari", "label": { "es": "Encuentros literarios", "it": "Incontri letterari" } },
+    { "id": "ais-bambini", "label": { "es": "AIS Bambini", "it": "AIS Bambini" }, "description": { "es": "Actividades en italiano para niños y familias.", "it": "Attività in italiano per bambini e famiglie." } },
+    { "id": "escursioni", "label": { "es": "Excursiones", "it": "Escursioni" } },
+    { "id": "cineforum", "label": { "es": "Cineforum", "it": "Cineforum" } },
+    { "id": "cucina", "label": { "es": "Cursos de cocina", "it": "Corsi di cucina" } },
+    { "id": "aperitivi", "label": { "es": "Aperitivos y cenas", "it": "Aperitivi e cene" } },
+    { "id": "istituzionale", "label": { "es": "Asambleas e institucional", "it": "Assemblee e istituzionale" } }
+  ]
+}

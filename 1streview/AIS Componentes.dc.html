@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Caveat+Brush&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #E4E0D2; }
+  a { color: #793421; text-decoration: none; }
+  a:hover { color: #342B5D; }
+</style>
+</helmet>
+
+<div style="background:#E4E0D2;padding:64px;font-family:Inter,sans-serif;display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+
+<div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Hoja de componentes — 1440</div>
+<div style="width:1440px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);padding:72px;display:flex;flex-direction:column;gap:64px">
+
+  <!-- BOTONES -->
+  <div>
+    <div style="display:flex;width:96px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28);margin-bottom:14px"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    <div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:32px">Botones</div>
+    <div style="display:grid;grid-template-columns:120px repeat(4,1fr);gap:20px;align-items:center">
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C"></div>
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Reposo</div>
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Hover</div>
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Foco</div>
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Inactivo</div>
+
+      <div style="font:600 15px/1.4 Inter,sans-serif;color:#1C1917">Primario</div>
+      <div style="background:#793421;color:#FFFFFF;font:600 17px/1 Inter,sans-serif;padding:15px 24px;border-radius:8px;text-align:center">Hazte socio</div>
+      <div style="background:#5F2718;color:#FFFFFF;font:600 17px/1 Inter,sans-serif;padding:15px 24px;border-radius:8px;text-align:center;box-shadow:0 4px 12px rgba(121,52,33,.18);transform:translateY(-2px)">Hazte socio</div>
+      <div style="background:#793421;color:#FFFFFF;font:600 17px/1 Inter,sans-serif;padding:15px 24px;border-radius:8px;text-align:center;outline:2px solid #342B5D;outline-offset:2px">Hazte socio</div>
+      <div style="background:#D9CFC4;color:#8A8078;font:600 17px/1 Inter,sans-serif;padding:15px 24px;border-radius:8px;text-align:center">Hazte socio</div>
+
+      <div style="font:600 15px/1.4 Inter,sans-serif;color:#1C1917">Secundario</div>
+      <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:13.5px 24px;border-radius:8px;text-align:center">Ver eventos</div>
+      <div style="border:1.5px solid #793421;background:#FEC191;color:#793421;font:600 17px/1 Inter,sans-serif;padding:13.5px 24px;border-radius:8px;text-align:center">Ver eventos</div>
+      <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:13.5px 24px;border-radius:8px;text-align:center;outline:2px solid #342B5D;outline-offset:2px">Ver eventos</div>
+      <div style="border:1.5px solid #D9CFC4;color:#A69C92;font:600 17px/1 Inter,sans-serif;padding:13.5px 24px;border-radius:8px;text-align:center">Ver eventos</div>
+
+      <div style="font:600 15px/1.4 Inter,sans-serif;color:#1C1917">Fantasma</div>
+      <div style="color:#793421;font:600 17px/1 Inter,sans-serif;padding:15px 8px;text-align:center">Ver todo</div>
+      <div style="color:#793421;font:600 17px/1 Inter,sans-serif;padding:15px 8px;text-align:center;border-bottom:1.5px solid #793421">Ver todo</div>
+      <div style="color:#793421;font:600 17px/1 Inter,sans-serif;padding:15px 8px;text-align:center;outline:2px solid #342B5D;outline-offset:2px;border-radius:4px">Ver todo</div>
+      <div style="color:#A69C92;font:600 17px/1 Inter,sans-serif;padding:15px 8px;text-align:center">Ver todo</div>
+
+      <div style="font:600 15px/1.4 Inter,sans-serif;color:#1C1917">Pastilla</div>
+      <div style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:11px 18px;border-radius:999px;text-align:center">Restauración</div>
+      <div style="background:#FEC191;border:1px solid rgba(121,52,33,.28);color:#793421;font:600 15px/1 Inter,sans-serif;padding:11px 18px;border-radius:999px;text-align:center">Restauración</div>
+      <div style="background:#793421;color:#FFFFFF;font:600 15px/1 Inter,sans-serif;padding:12px 18px;border-radius:999px;text-align:center;outline:2px solid #342B5D;outline-offset:2px">Restauración</div>
+      <div style="background:#F1EBE3;border:1px solid rgba(121,52,33,.1);color:#A69C92;font:600 15px/1 Inter,sans-serif;padding:11px 18px;border-radius:999px;text-align:center">Restauración</div>
+    </div>
+  </div>
+
+  <div style="height:1px;background:rgba(121,52,33,.14)"></div>
+
+  <!-- CAMPOS -->
+  <div>
+    <div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:8px">Campos de formulario</div>
+    <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C;margin-bottom:32px;max-width:64ch">Etiqueta siempre visible sobre el campo, altura mínima 48 px, error con icono además del color.</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+      <div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">Texto — reposo</div><div style="height:48px;border:1px solid rgba(121,52,33,.28);border-radius:8px;background:#F9F9ED"></div></div>
+      <div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">Texto — con foco</div><div style="height:48px;border:2px solid #342B5D;border-radius:8px;background:#FFFFFF;outline:2px solid #342B5D;outline-offset:2px"></div></div>
+      <div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">Texto — relleno</div><div style="height:48px;border:1px solid rgba(121,52,33,.28);border-radius:8px;background:#FFFFFF;display:flex;align-items:center;padding:0 14px;font:400 17px/1 Inter,sans-serif;color:#1C1917">Trattoria da Nino</div></div>
+      <div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">Email — error</div><div style="height:48px;border:1px solid #C81E20;border-radius:8px;background:#F9F9ED;display:flex;align-items:center;padding:0 14px;font:400 17px/1 Inter,sans-serif;color:#1C1917">nino@</div><div style="display:flex;gap:8px;align-items:center;margin-top:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C81E20" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#C81E20">Falta el dominio del correo.</span></div></div>
+      <div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">Selector</div><div style="height:48px;border:1px solid rgba(121,52,33,.28);border-radius:8px;background:#F9F9ED;display:flex;align-items:center;justify-content:space-between;padding:0 14px"><span style="font:400 17px/1 Inter,sans-serif;color:#5C544C">Elige una categoría</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div></div>
+      <div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">Inactivo</div><div style="height:48px;border:1px solid rgba(121,52,33,.1);border-radius:8px;background:#F1EBE3;display:flex;align-items:center;padding:0 14px;font:400 17px/1 Inter,sans-serif;color:#A69C92">No editable</div></div>
+      <div style="grid-column:span 2"><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">Área de texto</div><div style="height:96px;border:1px solid rgba(121,52,33,.28);border-radius:8px;background:#F9F9ED"></div><div style="display:flex;justify-content:flex-end;margin-top:6px"><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">0 / 220</span></div></div>
+      <div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">Zona de archivo</div><div style="border:1.5px dashed rgba(121,52,33,.28);border-radius:8px;background:#F9F9ED;padding:20px;display:flex;flex-direction:column;align-items:center;gap:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V3M7 8l5-5 5 5"/><path d="M20 17v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2"/></svg><span style="font:600 15px/1.4 Inter,sans-serif;color:#793421">Arrastra tu logo</span><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Máx. 5 MB</span></div></div>
+      <div style="grid-column:span 3;display:flex;gap:40px;flex-wrap:wrap">
+        <div style="display:flex;gap:12px;align-items:center"><div style="width:24px;height:24px;border:1.5px solid #793421;border-radius:4px"></div><span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917">Casilla sin marcar</span></div>
+        <div style="display:flex;gap:12px;align-items:center"><div style="width:24px;height:24px;background:#793421;border:1.5px solid #793421;border-radius:4px;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917">Casilla marcada</span></div>
+        <div style="display:flex;gap:12px;align-items:center"><div style="width:24px;height:24px;border:1.5px solid #793421;border-radius:4px;outline:2px solid #342B5D;outline-offset:2px"></div><span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917">Casilla con foco</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:1px;background:rgba(121,52,33,.14)"></div>
+
+  <!-- TARJETAS -->
+  <div>
+    <div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:32px">Tarjetas</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;align-items:start">
+
+      <div>
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:12px">Evento — cartel 4:5</div>
+        <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+          <div style="position:relative;aspect-ratio:4/5;background:#FEEED6;display:flex;align-items:center;justify-content:center">
+            <span style="font:400 15px/1.55 Inter,sans-serif;color:#793421;opacity:.6">Cartel 4:5</span>
+            <div style="position:absolute;top:14px;left:14px;background:#FFFFFF;border-radius:8px;padding:7px 11px;text-align:center;box-shadow:0 1px 2px rgba(121,52,33,.06)"><div style="font:600 24px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">26</div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Oct</div></div>
+          </div>
+          <div style="padding:20px">
+            <h3 style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 10px">X Feria de Italia</h3>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 14px/1.55 Inter,sans-serif;color:#5C544C">Sevilla</span></div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 12px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px">IT + ES</span><span style="background:#FEC191;color:#793421;font:400 19px/1 'Caveat Brush',cursive;padding:7px 14px;border-radius:999px;transform:rotate(-2deg)">Gratis</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:12px">Convenio</div>
+        <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+          <div style="height:120px;background:#FFFFFF;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;justify-content:center;padding:20px"><img src="assets/partners/tomares-dental.png" alt="Tomares Dental" style="max-height:64px;max-width:100%;object-fit:contain"></div>
+          <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+            <span style="align-self:flex-start;background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 12px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px">Salud</span>
+            <div style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917">Tomares Dental</div>
+            <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Odontólogos e higienistas con experiencia.</div>
+            <div style="border-top:1px solid rgba(121,52,33,.14);padding-top:14px;display:flex;align-items:baseline;gap:8px"><span style="font:600 44px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#C81E20">10%</span><span style="font:400 15px/1.4 Inter,sans-serif;color:#1C1917">en todos<br>los servicios</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:12px">Vacante</div>
+        <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px">
+          <span style="align-self:flex-start;background:#1E7A3C;color:#FFFFFF;font:600 12px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px">Voluntariado</span>
+          <div style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917">Coordinador/a de eventos</div>
+          <div style="background:#FEEED6;border-radius:8px;padding:14px 16px"><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:4px">Dedicación</div><div style="font:600 18px/1.38 Inter,sans-serif;color:#1C1917">4–6 h/semana</div></div>
+          <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Llevar el calendario de un mes a otro.</div>
+          <div style="border:1.5px solid #793421;color:#793421;font:600 16px/1 Inter,sans-serif;padding:14.5px;border-radius:8px;text-align:center">Ver más</div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:12px">Equipo — monograma</div>
+        <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+          <div style="aspect-ratio:1;background:#FEC191;display:flex;align-items:center;justify-content:center"><span style="font:600 72px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">MR</span></div>
+          <div style="padding:20px">
+            <div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Vicepresidenta</div>
+            <div style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:8px">Nombre Apellido</div>
+            <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">De Milán, en Sevilla desde 2016.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:1px;background:rgba(121,52,33,.14)"></div>
+
+  <!-- STRIP + MISC -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+    <div>
+      <div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:24px">Tira de confianza</div>
+      <div style="border-top:1px solid rgba(121,52,33,.14);border-bottom:1px solid rgba(121,52,33,.14);padding:28px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+        <div><div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">2010</div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-top:6px">Desde</div></div>
+        <div><div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">+200</div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-top:6px">Eventos</div></div>
+        <div><div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">IX</div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-top:6px">Ferias</div></div>
+        <div><div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">5</div><div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-top:6px">Convenios</div></div>
+      </div>
+
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin:32px 0 14px">Fila institucional — los logotipos van en escala de grises; los nombres en Grigio a plena opacidad</div>
+      <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap">
+        <span style="font:600 15px/1.3 Inter,sans-serif;color:#5C544C">Ayuntamiento de Sevilla</span>
+        <span style="font:600 15px/1.3 Inter,sans-serif;color:#5C544C">Consolato Generale d'Italia</span>
+        <span style="font:600 15px/1.3 Inter,sans-serif;color:#342B5D">Com.It.Es. <span style="font:400 13px/1.3 Inter,sans-serif;color:#5C544C">← hover</span></span>
+      </div>
+      <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C;margin-top:12px;max-width:56ch">Nunca se baja la opacidad de un bloque que contiene texto de cuerpo: para restar peso se cambia el color de tinta o el fondo de la tarjeta.</div>
+
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin:32px 0 14px">Migas y paginación</div>
+      <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C;margin-bottom:16px"><span style="color:#793421">Inicio</span> / <span style="color:#793421">Eventos</span> / <span style="color:#1C1917">IX Feria de Italia</span></div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="width:44px;height:44px;border-radius:8px;background:#793421;color:#FFFFFF;font:600 15px/44px Inter,sans-serif;text-align:center">1</span>
+        <span style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(121,52,33,.28);color:#793421;font:600 15px/42px Inter,sans-serif;text-align:center">2</span>
+        <span style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(121,52,33,.28);color:#793421;font:600 15px/42px Inter,sans-serif;text-align:center">3</span>
+        <span style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(121,52,33,.28);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </div>
+    </div>
+
+    <div>
+      <div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:24px">Estado vacío</div>
+      <div style="border:1.5px dashed rgba(121,52,33,.28);border-radius:28px;padding:40px;display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:40px">
+        <img src="assets/giralda.png" alt="" style="height:72px;width:auto;opacity:.35;margin-bottom:20px">
+        <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:10px">Aún no hay nada aquí</div>
+        <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C;max-width:40ch;margin-bottom:24px">Cuando publiquemos algo, aparecerá en esta lista. Puedes suscribirte para que te avisemos.</div>
+        <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:15.5px 26px;border-radius:8px">Avísame</div>
+      </div>
+
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:14px">Chips de idioma y pegatinas</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px">
+        <span lang="it" style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:9px 13px;border-radius:999px">IT</span>
+        <span lang="es" style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:9px 13px;border-radius:999px">ES</span>
+        <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:9px 13px;border-radius:999px">IT + ES</span>
+        <span style="background:#FEC191;color:#793421;font:400 20px/1 'Caveat Brush',cursive;padding:8px 16px;border-radius:999px;transform:rotate(-2deg)">Gratis</span>
+        <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.28);color:#793421;font:400 20px/1 'Caveat Brush',cursive;padding:8px 16px;border-radius:999px;transform:rotate(-2deg)">Solo socios</span>
+      </div>
+
+      <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:14px">Avisos de estado</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="background:#FFFFFF;border:1px solid #1E7A3C;border-radius:8px;padding:14px 16px;display:flex;gap:10px;align-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E7A3C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917">Propuesta enviada.</span></div>
+        <div style="background:#FFFFFF;border:1px solid #C81E20;border-radius:8px;padding:14px 16px;display:flex;gap:10px;align-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C81E20" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917">Falta rellenar la ventaja para socios.</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+</body>
+</html>

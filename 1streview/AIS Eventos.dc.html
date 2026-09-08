@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Caveat+Brush&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: #E4E0D2; }
+  a { color: #793421; text-decoration: none; }
+  a:hover { color: #342B5D; }
+</style>
+</helmet>
+
+<div style="background:#E4E0D2;padding:64px;font-family:Inter,sans-serif;display:flex;align-items:flex-start;gap:64px">
+
+<!-- DESKTOP -->
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">/es/eventos — desktop 1440</div>
+<div data-screen-label="Eventos desktop ES" style="width:1440px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);overflow:hidden">
+
+  <div style="height:72px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;gap:32px;padding:0 72px">
+    <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+      <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:44px;width:auto">
+      <div style="display:flex;width:60px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28)"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;font:500 16px/1 Inter,sans-serif;color:#1C1917">
+      <span style="display:flex;align-items:center;gap:5px">La Asociación <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span style="display:flex;align-items:center;gap:5px;color:#793421;font-weight:600;border-bottom:2px solid #793421;padding-bottom:4px">Eventos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span>Ventajas socios</span>
+      <span style="display:flex;align-items:center;gap:5px">Guía práctica <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span>Noticias</span>
+    </div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:20px">
+      <div style="display:flex;align-items:center;gap:8px;font:600 15px/1 Inter,sans-serif"><span style="color:#793421">ES</span><span style="color:rgba(121,52,33,.28)">·</span><span style="color:#5C544C">IT</span></div>
+      <div style="background:#793421;color:#FFFFFF;font:600 16px/1 Inter,sans-serif;padding:14px 22px;border-radius:8px;white-space:nowrap">Hazte socio</div>
+    </div>
+  </div>
+
+  <div style="padding:24px 72px 0;font:400 15px/1.55 Inter,sans-serif;color:#5C544C"><span style="color:#793421">Inicio</span> / <span style="color:#1C1917">Eventos</span></div>
+
+  <div style="padding:40px 72px 48px">
+    <div style="display:flex;width:96px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28);margin-bottom:16px"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    <h1 style="font:600 52px/1.08 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 20px">Calendario</h1>
+    <p style="font:400 21px/1.6 Inter,sans-serif;color:#5C544C;margin:0;max-width:64ch">Todo lo que organiza la asociación: encuentros, excursiones, cine, cocina y la Feria de Italia. Casi todo es gratuito y abierto.</p>
+  </div>
+
+  <div style="padding:0 72px 96px;display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start">
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:24px">
+      <div>
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:14px">Cuándo</div>
+        <div style="display:flex;border:1.5px solid #793421;border-radius:8px;overflow:hidden;height:44px">
+          <div style="flex:1;background:#793421;color:#FFFFFF;font:600 15px/44px Inter,sans-serif;text-align:center">Próximos</div>
+          <div style="flex:1;color:#793421;font:600 15px/44px Inter,sans-serif;text-align:center">Todos</div>
+        </div>
+      </div>
+      <div>
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:14px">Serie</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="background:#793421;color:#FFFFFF;font:600 15px/1 Inter,sans-serif;padding:10px 14px;border-radius:999px">Todas</span>
+          <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:9px 14px;border-radius:999px">Feria de Italia</span>
+          <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:9px 14px;border-radius:999px">AIS Bambini</span>
+          <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:9px 14px;border-radius:999px">Encuentros literarios</span>
+          <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:9px 14px;border-radius:999px">Excursiones</span>
+          <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:9px 14px;border-radius:999px">Cineforum</span>
+          <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:9px 14px;border-radius:999px">Cursos de cocina</span>
+          <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:9px 14px;border-radius:999px">Aperitivos y cenas</span>
+        </div>
+      </div>
+      <div>
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:14px">Idioma</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:10px;align-items:center"><div style="width:22px;height:22px;border:1.5px solid #793421;border-radius:4px"></div><span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917">Italiano</span></div>
+          <div style="display:flex;gap:10px;align-items:center"><div style="width:22px;height:22px;border:1.5px solid #793421;border-radius:4px"></div><span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917">Español</span></div>
+          <div style="display:flex;gap:10px;align-items:center"><div style="width:22px;height:22px;background:#793421;border:1.5px solid #793421;border-radius:4px;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917">Bilingüe</span></div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(121,52,33,.14);padding-top:20px">
+        <div style="color:#793421;font:600 15px/1 Inter,sans-serif;border-bottom:1.5px solid rgba(121,52,33,.28);width:fit-content;padding-bottom:4px">Quitar filtros</div>
+      </div>
+    </div>
+
+    <div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">3 eventos próximos</div>
+        <div style="display:flex;align-items:center;gap:8px;font:500 15px/1 Inter,sans-serif;color:#5C544C">Ordenar: <span style="color:#793421;font-weight:600">fecha más cercana</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+        <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+          <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="ev-idx-1" shape="rect" fit="cover" placeholder="Cartel 4:5"></image-slot>
+            <div style="position:absolute;top:16px;left:16px;background:#FFFFFF;border-radius:8px;padding:8px 12px;text-align:center;box-shadow:0 1px 2px rgba(121,52,33,.06);pointer-events:none"><div style="font:600 26px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">26</div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-top:2px">Sep</div></div>
+          </div>
+          <div style="padding:24px">
+            <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Encuentros literarios</div>
+            <h3 style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 12px;text-wrap:pretty">«Il resto di niente» de Enzo Striano</h3>
+            <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Sevilla · 19:00</span></div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px">IT</span><span style="background:#FEC191;color:#793421;font:400 20px/1 'Caveat Brush',cursive;padding:7px 15px;border-radius:999px;transform:rotate(-2deg)">Entrada libre</span></div>
+          </div>
+        </div>
+
+        <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+          <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="ev-idx-2" shape="rect" fit="cover" placeholder="Cartel 4:5"></image-slot>
+            <div style="position:absolute;top:16px;left:16px;background:#FFFFFF;border-radius:8px;padding:8px 12px;text-align:center;box-shadow:0 1px 2px rgba(121,52,33,.06);pointer-events:none"><div style="font:600 26px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">26</div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-top:2px">Oct</div></div>
+          </div>
+          <div style="padding:24px">
+            <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Feria de Italia</div>
+            <h3 style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 12px;text-wrap:pretty">X Feria de Italia</h3>
+            <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Sevilla · 26 y 27 de octubre</span></div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px">IT + ES</span><span style="background:#FEC191;color:#793421;font:400 20px/1 'Caveat Brush',cursive;padding:7px 15px;border-radius:999px;transform:rotate(-2deg)">Gratis</span></div>
+          </div>
+        </div>
+
+        <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+          <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="ev-idx-3" shape="rect" fit="cover" placeholder="Cartel 4:5"></image-slot>
+            <div style="position:absolute;top:16px;left:16px;background:#FFFFFF;border-radius:8px;padding:8px 12px;text-align:center;box-shadow:0 1px 2px rgba(121,52,33,.06);pointer-events:none"><div style="font:600 26px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">15</div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-top:2px">Nov</div></div>
+          </div>
+          <div style="padding:24px">
+            <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Excursiones</div>
+            <h3 style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 12px;text-wrap:pretty">Excursión a Baelo Claudia</h3>
+            <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Ensenada de Bolonia, Tarifa</span></div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px">IT + ES</span><span style="font:600 15px/1.55 Inter,sans-serif;color:#1C1917">Solo socios</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:80px;padding-top:40px;border-top:1px solid rgba(121,52,33,.14)">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px">
+          <h2 style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0">Archivo</h2>
+          <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Quince años de actividad</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+          <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden">
+            <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="ev-past-1" shape="rect" fit="cover" placeholder="Cartel IX Feria 4:5"></image-slot></div>
+            <div style="padding:20px">
+              <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">26–27 oct 2024 · Feria de Italia</div>
+              <h3 style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 8px">IX Feria de Italia</h3>
+              <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Colegio Marista, C/ Paraíso 8</div>
+            </div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden">
+            <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="ev-past-2" shape="rect" fit="cover" placeholder="Cartel 4:5"></image-slot></div>
+            <div style="padding:20px">
+              <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">11 jul 2026 · Excursiones</div>
+              <h3 style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 8px">Noche de observación astronómica</h3>
+              <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Provincia de Sevilla</div>
+            </div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden">
+            <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="ev-past-3" shape="rect" fit="cover" placeholder="Cartel 4:5"></image-slot></div>
+            <div style="padding:20px">
+              <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">2025 · Excursiones</div>
+              <h3 style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 8px">Excursión a Baelo Claudia</h3>
+              <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Tarifa, Cádiz</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:32px;display:flex;align-items:center;gap:8px">
+          <span style="width:44px;height:44px;border-radius:8px;background:#793421;color:#FFFFFF;font:600 15px/44px Inter,sans-serif;text-align:center">1</span>
+          <span style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(121,52,33,.28);color:#793421;font:600 15px/42px Inter,sans-serif;text-align:center">2</span>
+          <span style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(121,52,33,.28);color:#793421;font:600 15px/42px Inter,sans-serif;text-align:center">3</span>
+          <span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C;padding:0 8px">…</span>
+          <span style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(121,52,33,.28);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#342B5D;padding:48px 72px;font:400 17px/1.65 Inter,sans-serif;color:#FEC191">© 2026 Asociación Italiani a Siviglia · info@italianiasiviglia.com</div>
+
+</div>
+</div>
+
+<!-- MOBILE -->
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">/es/eventos — mobile 390</div>
+<div data-screen-label="Eventos mobile ES" style="width:390px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);overflow:hidden">
+
+  <div style="height:64px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;justify-content:space-between;padding:0 20px">
+    <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:38px;width:auto">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div style="background:#793421;color:#FFFFFF;font:600 15px/1 Inter,sans-serif;padding:13px 16px;border-radius:8px">Hazte socio</div>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </div>
+  </div>
+
+  <div style="padding:20px 20px 0;font:400 14px/1.55 Inter,sans-serif;color:#5C544C"><span style="color:#793421">Inicio</span> / <span style="color:#1C1917">Eventos</span></div>
+
+  <div style="padding:24px 20px 24px">
+    <div style="display:flex;width:96px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28);margin-bottom:14px"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    <h1 style="font:600 34px/1.12 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 14px">Calendario</h1>
+    <p style="font:400 18px/1.6 Inter,sans-serif;color:#5C544C;margin:0">Encuentros, excursiones, cine, cocina y la Feria de Italia.</p>
+  </div>
+
+  <div style="padding:0 20px 24px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;border:1.5px solid #793421;border-radius:8px;overflow:hidden;height:48px">
+      <div style="flex:1;background:#793421;color:#FFFFFF;font:600 16px/48px Inter,sans-serif;text-align:center">Solo próximos</div>
+      <div style="flex:1;color:#793421;font:600 16px/48px Inter,sans-serif;text-align:center">Todos</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(121,52,33,.28);border-radius:8px;height:48px;padding:0 16px">
+      <span style="font:500 16px/1 Inter,sans-serif;color:#1C1917">Filtros</span>
+      <div style="display:flex;align-items:center;gap:8px"><span style="background:#793421;color:#FFFFFF;font:600 13px/1 Inter,sans-serif;padding:5px 9px;border-radius:999px">1</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M7 12h10M11 18h2"/></svg></div>
+    </div>
+  </div>
+
+  <div style="padding:0 20px 40px;display:flex;flex-direction:column;gap:20px">
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden">
+      <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="m-ev-idx-1" shape="rect" fit="cover" placeholder="Cartel 4:5"></image-slot>
+        <div style="position:absolute;top:14px;left:14px;background:#FFFFFF;border-radius:8px;padding:7px 11px;text-align:center;box-shadow:0 1px 2px rgba(121,52,33,.06);pointer-events:none"><div style="font:600 24px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">26</div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Sep</div></div>
+      </div>
+      <div style="padding:20px">
+        <div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Encuentros literarios</div>
+        <h3 style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 10px">«Il resto di niente» de Enzo Striano</h3>
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 14px/1.55 Inter,sans-serif;color:#5C544C">Sevilla · 19:00</span></div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 12px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px">IT</span><span style="background:#FEC191;color:#793421;font:400 19px/1 'Caveat Brush',cursive;padding:7px 14px;border-radius:999px;transform:rotate(-2deg)">Entrada libre</span></div>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden">
+      <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="m-ev-idx-2" shape="rect" fit="cover" placeholder="Cartel 4:5"></image-slot>
+        <div style="position:absolute;top:14px;left:14px;background:#FFFFFF;border-radius:8px;padding:7px 11px;text-align:center;box-shadow:0 1px 2px rgba(121,52,33,.06);pointer-events:none"><div style="font:600 24px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">26</div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Oct</div></div>
+      </div>
+      <div style="padding:20px">
+        <div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Feria de Italia</div>
+        <h3 style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 10px">X Feria de Italia</h3>
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 14px/1.55 Inter,sans-serif;color:#5C544C">Sevilla · 26 y 27 de octubre</span></div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 12px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px">IT + ES</span><span style="background:#FEC191;color:#793421;font:400 19px/1 'Caveat Brush',cursive;padding:7px 14px;border-radius:999px;transform:rotate(-2deg)">Gratis</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(121,52,33,.14)">
+      <h2 style="font:600 28px/1.18 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 16px">Archivo</h2>
+      <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden">
+        <div style="position:relative;aspect-ratio:4/5;background:#F9F9ED"><image-slot id="m-ev-past-1" shape="rect" fit="cover" placeholder="Cartel IX Feria 4:5"></image-slot></div>
+        <div style="padding:20px">
+          <div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-bottom:8px">26–27 oct 2024</div>
+          <h3 style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0">IX Feria de Italia</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

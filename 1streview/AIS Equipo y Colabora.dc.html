@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Caveat+Brush&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: #E4E0D2; }
+  a { color: #793421; text-decoration: none; }
+  a:hover { color: #342B5D; }
+</style>
+</helmet>
+
+<div style="background:#E4E0D2;padding:64px;font-family:Inter,sans-serif;display:flex;align-items:flex-start;gap:64px">
+
+<!-- ============ EQUIPO ============ -->
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">/es/la-asociacion/equipo — desktop 1440</div>
+<div data-screen-label="Equipo desktop" style="width:1440px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);overflow:hidden">
+
+  <div style="height:72px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;gap:32px;padding:0 72px">
+    <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+      <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:44px;width:auto">
+      <div style="display:flex;width:60px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28)"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;font:500 16px/1 Inter,sans-serif;color:#1C1917">
+      <span style="display:flex;align-items:center;gap:5px;color:#793421;font-weight:600;border-bottom:2px solid #793421;padding-bottom:4px">La Asociación <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span style="display:flex;align-items:center;gap:5px">Eventos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span>Ventajas socios</span>
+      <span style="display:flex;align-items:center;gap:5px">Guía práctica <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span>Noticias</span>
+    </div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:20px">
+      <div style="display:flex;align-items:center;gap:8px;font:600 15px/1 Inter,sans-serif"><span style="color:#793421">ES</span><span style="color:rgba(121,52,33,.28)">·</span><span style="color:#5C544C">IT</span></div>
+      <div style="background:#793421;color:#FFFFFF;font:600 16px/1 Inter,sans-serif;padding:14px 22px;border-radius:8px;white-space:nowrap">Hazte socio</div>
+    </div>
+  </div>
+
+  <div style="padding:24px 72px 0;font:400 15px/1.55 Inter,sans-serif;color:#5C544C"><span style="color:#793421">Inicio</span> / <span style="color:#793421">La Asociación</span> / <span style="color:#1C1917">Equipo</span></div>
+
+  <div style="padding:40px 72px 56px;position:relative;overflow:hidden">
+    <img src="assets/giralda.png" alt="" style="position:absolute;right:-40px;top:-80px;height:420px;opacity:.05;pointer-events:none">
+    <div style="display:flex;width:96px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28);margin-bottom:16px"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    <h1 style="font:600 52px/1.08 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 20px;position:relative">La junta directiva</h1>
+    <p style="font:400 21px/1.6 Inter,sans-serif;color:#5C544C;margin:0;max-width:64ch;position:relative">Seis personas elegidas en asamblea, todas voluntarias. Si quieres proponer algo, escribe a cualquiera de nosotros: contestamos.</p>
+  </div>
+
+  <div style="padding:0 72px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+      <div style="aspect-ratio:1;background:#F9F9ED"><image-slot id="team-1" shape="rect" fit="cover" placeholder="Retrato cuadrado"></image-slot></div>
+      <div style="padding:24px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Presidente</div>
+        <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:10px">Nombre Apellido</div>
+        <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C">En Sevilla desde 2011, de Nápoles. Coordina la Feria y la relación con el Ayuntamiento.</div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+      <div style="aspect-ratio:1;background:#FEC191;display:flex;align-items:center;justify-content:center"><span style="font:600 96px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">MR</span></div>
+      <div style="padding:24px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Vicepresidenta</div>
+        <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:10px">Nombre Apellido</div>
+        <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C">De Milán, en Sevilla desde 2016. Lleva los encuentros literarios.</div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+      <div style="aspect-ratio:1;background:#F9F9ED"><image-slot id="team-3" shape="rect" fit="cover" placeholder="Retrato cuadrado"></image-slot></div>
+      <div style="padding:24px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Secretaria</div>
+        <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:10px">Nombre Apellido</div>
+        <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C">Actas, socios y el correo de info@. Si escribes, te contesta ella.</div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+      <div style="aspect-ratio:1;background:#FEC191;display:flex;align-items:center;justify-content:center"><span style="font:600 96px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">GT</span></div>
+      <div style="padding:24px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Tesorero</div>
+        <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:10px">Nombre Apellido</div>
+        <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C">Cuentas, cuotas y las subvenciones. Publica el balance cada año.</div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+      <div style="aspect-ratio:1;background:#F9F9ED"><image-slot id="team-5" shape="rect" fit="cover" placeholder="Retrato cuadrado"></image-slot></div>
+      <div style="padding:24px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Vocal de eventos</div>
+        <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:10px">Nombre Apellido</div>
+        <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C">Excursiones, cocina y AIS Bambini. Conduce la furgoneta.</div>
+      </div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+      <div style="aspect-ratio:1;background:#FEC191;display:flex;align-items:center;justify-content:center"><span style="font:600 96px/1 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421">CF</span></div>
+      <div style="padding:24px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:8px">Vocal de comunicación</div>
+        <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:10px">Nombre Apellido</div>
+        <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C">Instagram, carteles y la newsletter. Hace las fotos de los eventos.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 72px 96px;display:grid;grid-template-columns:1fr 1fr;gap:32px">
+    <div style="background:#FEEED6;border-radius:16px;padding:36px">
+      <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:14px">Cómo se elige la junta</div>
+      <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C;margin-bottom:20px;max-width:60ch">La asamblea de socios elige los seis cargos cada dos años, en votación abierta. Cualquier socio puede presentarse. El procedimiento está en los estatutos, artículos 12 a 17.</div>
+      <div style="display:flex;align-items:center;gap:8px;font:600 17px/1 Inter,sans-serif;color:#793421">Estatutos y transparencia <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+    <div style="background:#FEC191;border-radius:28px;padding:36px;position:relative;overflow:hidden">
+      <svg width="80" height="46" viewBox="0 0 120 60" fill="none" aria-hidden="true" style="position:absolute;top:16px;right:20px"><path d="M30 4 L34 22 L52 26 L34 30 L30 48 L26 30 L8 26 L26 22 Z" fill="#793421" opacity=".3"></path></svg>
+      <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#793421;margin-bottom:14px;position:relative">Además de la junta, somos muchos</div>
+      <div style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917;margin-bottom:24px;max-width:56ch;position:relative">La asociación se mueve gracias a las personas que echan una mano en cada evento. Hay tres puestos abiertos ahora mismo.</div>
+      <div style="background:#793421;color:#FFFFFF;font:600 17px/1 Inter,sans-serif;padding:17px 30px;border-radius:8px;display:inline-block;position:relative">Ver cómo colaborar</div>
+    </div>
+  </div>
+
+  <div style="background:#342B5D;padding:48px 72px;font:400 17px/1.65 Inter,sans-serif;color:#FEC191">© 2026 Asociación Italiani a Siviglia · info@italianiasiviglia.com</div>
+
+</div>
+</div>
+
+<!-- ============ COLABORA ============ -->
+<div style="display:flex;flex-direction:column;gap:48px">
+
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">/es/colabora — desktop 1440</div>
+<div data-screen-label="Colabora desktop" style="width:1440px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);overflow:hidden">
+
+  <div style="height:72px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;gap:32px;padding:0 72px">
+    <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+      <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:44px;width:auto">
+      <div style="display:flex;width:60px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28)"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;font:500 16px/1 Inter,sans-serif;color:#1C1917">
+      <span style="display:flex;align-items:center;gap:5px;color:#793421;font-weight:600;border-bottom:2px solid #793421;padding-bottom:4px">La Asociación <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span style="display:flex;align-items:center;gap:5px">Eventos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span>Ventajas socios</span>
+      <span style="display:flex;align-items:center;gap:5px">Guía práctica <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      <span>Noticias</span>
+    </div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:20px">
+      <div style="display:flex;align-items:center;gap:8px;font:600 15px/1 Inter,sans-serif"><span style="color:#793421">ES</span><span style="color:rgba(121,52,33,.28)">·</span><span style="color:#5C544C">IT</span></div>
+      <div style="background:#793421;color:#FFFFFF;font:600 16px/1 Inter,sans-serif;padding:14px 22px;border-radius:8px;white-space:nowrap">Hazte socio</div>
+    </div>
+  </div>
+
+  <div style="padding:24px 72px 0;font:400 15px/1.55 Inter,sans-serif;color:#5C544C"><span style="color:#793421">Inicio</span> / <span style="color:#1C1917">Colabora</span></div>
+
+  <div style="padding:40px 72px 48px">
+    <div style="display:flex;width:96px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28);margin-bottom:16px"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    <h1 style="font:600 52px/1.08 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 20px;max-width:22ch">La asociación se mueve gracias a voluntarios</h1>
+    <p style="font:400 21px/1.6 Inter,sans-serif;color:#5C544C;margin:0;max-width:64ch">No hace falta compromiso eterno ni experiencia. Basta con tiempo, ganas y avisar de qué te apetece hacer.</p>
+  </div>
+
+  <div style="padding:0 72px 32px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <span style="background:#793421;color:#FFFFFF;font:600 15px/1 Inter,sans-serif;padding:12px 20px;border-radius:999px">Todas las áreas · 3</span>
+    <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:11px 20px;border-radius:999px">Eventos</span>
+    <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:11px 20px;border-radius:999px">Comunicación</span>
+    <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:11px 20px;border-radius:999px">AIS Bambini</span>
+    <span style="background:#FEEED6;border:1px solid rgba(121,52,33,.14);color:#793421;font:600 15px/1 Inter,sans-serif;padding:11px 20px;border-radius:999px">Junta directiva</span>
+  </div>
+
+  <div style="padding:0 72px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <span style="background:#1E7A3C;color:#FFFFFF;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px">Voluntariado</span>
+        <span style="background:#FEC191;color:#793421;font:400 19px/1 'Caveat Brush',cursive;padding:6px 14px;border-radius:999px;transform:rotate(-2deg)">Nuevo</span>
+      </div>
+      <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917">Coordinador/a de eventos</div>
+      <div style="background:#FEEED6;border-radius:8px;padding:16px 18px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:6px">Dedicación</div>
+        <div style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">4–6 h/semana, flexible</div>
+      </div>
+      <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C;flex:1">Llevar el calendario de un mes a otro: proponer, reservar, coordinar con los ponentes y estar el día del evento.</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;gap:8px;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Sevilla · presencial y remoto</span></div>
+        <div style="display:flex;gap:8px;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Italiano y español</span></div>
+      </div>
+      <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:15.5px;border-radius:8px;text-align:center">Ver más</div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px">
+      <div><span style="background:#1E7A3C;color:#FFFFFF;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px">Voluntariado</span></div>
+      <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917">Responsable de redes sociales</div>
+      <div style="background:#FEEED6;border-radius:8px;padding:16px 18px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:6px">Dedicación</div>
+        <div style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">2–3 h/semana, remoto</div>
+      </div>
+      <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C;flex:1">Mantener viva la cuenta de Instagram y la de Facebook: calendario de publicaciones, carteles y stories de los eventos.</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;gap:8px;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Remoto</span></div>
+        <div style="display:flex;gap:8px;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Italiano y español</span></div>
+      </div>
+      <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:15.5px;border-radius:8px;text-align:center">Ver más</div>
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.14);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px">
+      <div><span style="background:#1E7A3C;color:#FFFFFF;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px">Voluntariado</span></div>
+      <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917">Monitor/a AIS Bambini</div>
+      <div style="background:#FEEED6;border-radius:8px;padding:16px 18px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:6px">Dedicación</div>
+        <div style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">1 sábado al mes</div>
+      </div>
+      <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C;flex:1">Preparar y dinamizar las actividades en italiano para los niños de las familias socias.</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;gap:8px;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Sevilla · presencial</span></div>
+        <div style="display:flex;gap:8px;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg><span style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Italiano</span></div>
+      </div>
+      <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:15.5px;border-radius:8px;text-align:center">Ver más</div>
+    </div>
+
+    <div style="background:#F1EBE3;border:1px solid rgba(121,52,33,.14);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="background:#342B5D;color:#FFFFFF;font:600 13px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:999px">Junta directiva</span>
+        <span style="display:flex;align-items:center;gap:6px;font:600 15px/1 Inter,sans-serif;color:#5C544C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5C544C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Cubierto</span>
+      </div>
+      <div style="font:400 26px/1.25 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917">Tesorero/a</div>
+      <div style="background:#FEEED6;border-radius:8px;padding:16px 18px">
+        <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:6px">Dedicación</div>
+        <div style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">Cargo de la junta, mandato de 2 años</div>
+      </div>
+      <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C;flex:1">Cargo cubierto. Se renueva en la próxima asamblea.</div>
+      <div style="border:1.5px solid #D9CFC4;color:#A69C92;font:600 17px/1 Inter,sans-serif;padding:15.5px;border-radius:8px;text-align:center">Ver más</div>
+    </div>
+  </div>
+
+  <div style="background:#342B5D;padding:48px 72px;font:400 17px/1.65 Inter,sans-serif;color:#FEC191">© 2026 Asociación Italiani a Siviglia · info@italianiasiviglia.com</div>
+
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">/es/colabora — estado vacío (sin vacantes)</div>
+<div data-screen-label="Colabora vacío" style="width:1440px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);overflow:hidden">
+  <div style="height:72px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;gap:32px;padding:0 72px">
+    <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+      <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:44px;width:auto">
+      <div style="display:flex;width:60px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28)"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;font:500 16px/1 Inter,sans-serif;color:#1C1917">
+      <span style="color:#793421;font-weight:600;border-bottom:2px solid #793421;padding-bottom:4px">La Asociación</span><span>Eventos</span><span>Ventajas socios</span><span>Guía práctica</span><span>Noticias</span>
+    </div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:20px">
+      <div style="display:flex;align-items:center;gap:8px;font:600 15px/1 Inter,sans-serif"><span style="color:#793421">ES</span><span style="color:rgba(121,52,33,.28)">·</span><span style="color:#5C544C">IT</span></div>
+      <div style="background:#793421;color:#FFFFFF;font:600 16px/1 Inter,sans-serif;padding:14px 22px;border-radius:8px">Hazte socio</div>
+    </div>
+  </div>
+
+  <div style="padding:40px 72px 48px">
+    <div style="display:flex;width:96px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28);margin-bottom:16px"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+    <h1 style="font:600 52px/1.08 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin:0 0 20px;max-width:22ch">La asociación se mueve gracias a voluntarios</h1>
+    <p style="font:400 21px/1.6 Inter,sans-serif;color:#5C544C;margin:0;max-width:64ch">No hace falta compromiso eterno ni experiencia. Basta con tiempo, ganas y avisar de qué te apetece hacer.</p>
+  </div>
+
+  <div style="padding:0 72px 96px">
+    <div style="border:1.5px dashed rgba(121,52,33,.28);border-radius:28px;padding:80px 64px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden">
+      <svg width="120" height="60" viewBox="0 0 120 60" fill="none" aria-hidden="true" style="position:absolute;top:28px;right:40px"><path d="M30 4 L34 22 L52 26 L34 30 L30 48 L26 30 L8 26 L26 22 Z" fill="#793421" opacity=".3"></path><path d="M78 18 L80 30 L92 33 L80 36 L78 48 L76 36 L64 33 L76 30 Z" fill="#793421" opacity=".3"></path></svg>
+      <img src="assets/giralda.png" alt="" style="height:120px;width:auto;opacity:.35;margin-bottom:28px">
+      <div style="font:600 38px/1.15 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:16px;max-width:26ch">Ahora mismo no hay vacantes abiertas</div>
+      <div style="font:400 21px/1.6 Inter,sans-serif;color:#5C544C;max-width:52ch;margin-bottom:36px">Pero siempre hay algo que hacer: montar, traducir, hacer fotos, llevar sillas. Escríbenos y te decimos qué hace falta este mes.</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+        <div style="background:#793421;color:#FFFFFF;font:600 17px/1 Inter,sans-serif;padding:17px 30px;border-radius:8px">Escríbenos</div>
+        <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:15.5px 30px;border-radius:8px">Avísame de nuevas vacantes</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#342B5D;padding:48px 72px;font:400 17px/1.65 Inter,sans-serif;color:#FEC191">© 2026 Asociación Italiani a Siviglia · info@italianiasiviglia.com</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

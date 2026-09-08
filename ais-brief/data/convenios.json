@@ -1,0 +1,121 @@
+{
+  "_comment": "Convenzioni / Ventajas para socios. Records 1-5 transcribed verbatim from the AIS Instagram carousel 'NUOVE CONVENZIONI PER I SOCI AIS'. Descriptions are the association's own IT copy; ES is a translation to review before publishing. ai-generated",
+  "$schema": "./schemas/convenio.schema.json",
+  "updated": "2026-09-07",
+  "items": [
+    {
+      "id": "piaceri-italiani",
+      "name": "Piaceri Italiani",
+      "category": "alimentacion",
+      "status": "active",
+      "featured": true,
+      "logo": "/assets/convenios/piaceri-italiani.png",
+      "description": {
+        "it": "Prodotti autentici della tradizione italiana e specialità gastronomiche di qualità.",
+        "es": "Productos auténticos de la tradición italiana y especialidades gastronómicas de calidad."
+      },
+      "benefit": {
+        "it": "Sconto soci: 8% su tutti i prodotti",
+        "es": "Descuento socios: 8% en todos los productos"
+      },
+      "benefitValue": { "type": "percentage", "amount": 8, "appliesTo": "all" },
+      "address": { "street": "C. Regina, 23", "locality": "Sevilla", "postalCode": "41003", "country": "ES" },
+      "geo": { "lat": null, "lng": null, "mapsUrl": "TODO_google_maps_url" },
+      "contact": { "phone": null, "email": null, "website": null, "instagram": null },
+      "since": "2026"
+    },
+    {
+      "id": "la-cocinera-tremenda",
+      "name": "La Cocinera Tremenda",
+      "category": "restauracion",
+      "status": "active",
+      "featured": true,
+      "logo": "/assets/convenios/la-cocinera-tremenda.png",
+      "description": {
+        "it": "Un locale dove gustare autentici piatti della cucina italiana in un ambiente informale e accogliente.",
+        "es": "Un local donde disfrutar de auténticos platos de la cocina italiana en un ambiente informal y acogedor."
+      },
+      "benefit": {
+        "it": "Promozione soci: 1 piatto di pasta gratis ogni 30€ spesi",
+        "es": "Promoción socios: 1 plato de pasta gratis por cada 30€ de gasto"
+      },
+      "benefitValue": { "type": "gift", "amount": null, "appliesTo": "spend-threshold-30-eur" },
+      "address": { "street": "Mercado del Arenal, Puesto 13, Calle Pastor y Landero", "locality": "Sevilla", "postalCode": "41001", "country": "ES" },
+      "geo": { "lat": null, "lng": null, "mapsUrl": "TODO_google_maps_url" },
+      "contact": { "phone": null, "email": null, "website": null, "instagram": null },
+      "since": "2026"
+    },
+    {
+      "id": "tomares-dental",
+      "name": "Tomares Dental",
+      "category": "salud",
+      "status": "active",
+      "featured": false,
+      "logo": "/assets/convenios/tomares-dental.png",
+      "description": {
+        "it": "Organizzazione clinica rigorosa, odontoiatri e igienisti d'esperienza, tecnologie moderne e di qualità.",
+        "es": "Organización clínica rigurosa, odontólogos e higienistas con experiencia, tecnología moderna y de calidad."
+      },
+      "benefit": {
+        "it": "Sconto soci: 10% su tutti i servizi",
+        "es": "Descuento socios: 10% en todos los servicios"
+      },
+      "benefitValue": { "type": "percentage", "amount": 10, "appliesTo": "all" },
+      "address": { "street": "Av. de la Arboleda, 56-58", "locality": "Tomares", "postalCode": "41940", "country": "ES" },
+      "geo": { "lat": null, "lng": null, "mapsUrl": "TODO_google_maps_url" },
+      "contact": { "phone": null, "email": null, "website": null, "instagram": null },
+      "since": "2026"
+    },
+    {
+      "id": "lazzo",
+      "name": "Lazzo — When Pizza Meets Burger",
+      "category": "restauracion",
+      "status": "active",
+      "featured": true,
+      "logo": "/assets/convenios/lazzo.png",
+      "description": {
+        "it": "Pizze artigianali e hamburger preparati con ingredienti freschi in un locale giovane e informale.",
+        "es": "Pizzas artesanales y hamburguesas preparadas con ingredientes frescos en un local joven e informal."
+      },
+      "benefit": {
+        "it": "Sconto soci: 20% su tutto il menu",
+        "es": "Descuento socios: 20% en toda la carta"
+      },
+      "benefitValue": { "type": "percentage", "amount": 20, "appliesTo": "all" },
+      "address": { "street": "Av. de Llanes, 8", "locality": "Sevilla", "postalCode": "41007", "country": "ES" },
+      "geo": { "lat": null, "lng": null, "mapsUrl": "TODO_google_maps_url" },
+      "contact": { "phone": null, "email": null, "website": null, "instagram": null },
+      "since": "2026"
+    },
+    {
+      "id": "myes-my-english-school",
+      "name": "MYES — My English School",
+      "category": "formacion",
+      "status": "active",
+      "featured": false,
+      "logo": "/assets/convenios/myes.png",
+      "description": {
+        "it": "Scuola moderna con metodo pratico e coinvolgente per imparare l'inglese.",
+        "es": "Escuela moderna con un método práctico y participativo para aprender inglés."
+      },
+      "benefit": {
+        "it": "10% sconto sui corsi · 50% sconto matricola · 3 lezioni gratuite",
+        "es": "10% de descuento en los cursos · 50% de descuento en matrícula · 3 clases gratuitas"
+      },
+      "benefitValue": { "type": "multiple", "amount": null, "appliesTo": "courses+enrolment+trial" },
+      "address": { "street": "Av. República Argentina, 16", "locality": "Sevilla", "postalCode": "41011", "country": "ES" },
+      "geo": { "lat": null, "lng": null, "mapsUrl": "TODO_google_maps_url" },
+      "contact": { "phone": null, "email": null, "website": null, "instagram": null },
+      "since": "2026"
+    }
+  ],
+  "categories": [
+    { "id": "restauracion", "label": { "es": "Restauración", "it": "Ristorazione" }, "icon": "fork" },
+    { "id": "alimentacion", "label": { "es": "Alimentación", "it": "Alimentari" }, "icon": "basket" },
+    { "id": "formacion", "label": { "es": "Formación e idiomas", "it": "Formazione e lingue" }, "icon": "book" },
+    { "id": "salud", "label": { "es": "Salud y bienestar", "it": "Salute e benessere" }, "icon": "heart" },
+    { "id": "servicios", "label": { "es": "Servicios profesionales", "it": "Servizi professionali" }, "icon": "briefcase" },
+    { "id": "ocio", "label": { "es": "Ocio y cultura", "it": "Tempo libero e cultura" }, "icon": "ticket" },
+    { "id": "casa", "label": { "es": "Casa y hogar", "it": "Casa" }, "icon": "home" }
+  ]
+}

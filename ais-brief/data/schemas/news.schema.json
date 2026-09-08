@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://italianiasiviglia.com/schemas/news.schema.json",
+  "title": "News item",
+  "description": "A short post. Emits schema.org/NewsArticle JSON-LD. ai-generated",
+  "type": "object",
+  "required": ["id", "status", "date", "category", "title", "summary"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "status": { "type": "string", "enum": ["draft", "published"] },
+    "date": { "type": "string", "format": "date" },
+    "category": { "type": "string" },
+    "title": { "$ref": "#/$defs/i18n" },
+    "summary": { "$ref": "#/$defs/i18n" },
+    "body": { "$ref": "#/$defs/i18nNullable", "description": "Markdown." },
+    "cover": { "type": ["string", "null"] },
+    "author": { "type": ["string", "null"] },
+    "relatedTo": {
+      "type": ["object", "null"],
+      "properties": { "type": { "type": "string", "enum": ["events", "convenios", "careers"] }, "ids": { "type": "array", "items": { "type": "string" } } },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "i18n": { "type": "object", "required": ["it", "es"], "properties": { "it": { "type": "string" }, "es": { "type": "string" } }, "additionalProperties": false },
+    "i18nNullable": { "type": ["object", "null"], "properties": { "it": { "type": "string" }, "es": { "type": "string" } }, "additionalProperties": false }
+  }
+}

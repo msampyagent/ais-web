@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Caveat+Brush&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #E4E0D2; }
+  a { color: #793421; text-decoration: none; }
+  a:hover { color: #342B5D; }
+</style>
+</helmet>
+
+<div style="background:#E4E0D2;padding:64px;font-family:Inter,sans-serif;display:flex;align-items:flex-start;gap:64px">
+
+<div style="display:flex;flex-direction:column;gap:48px">
+
+  <!-- HEADER: default + scrolled -->
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Cabecera 1440 — reposo (72px)</div>
+    <div style="width:1440px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08)">
+      <div style="height:72px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;gap:32px;padding:0 72px">
+        <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+          <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:44px;width:auto">
+          <div style="display:flex;width:60px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28)"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:26px;font:500 16px/1 Inter,sans-serif;color:#1C1917">
+          <span style="display:flex;align-items:center;gap:5px">La Asociación <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span style="display:flex;align-items:center;gap:5px">Eventos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span>Ventajas socios</span>
+          <span style="display:flex;align-items:center;gap:5px">Guía práctica <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span>Noticias</span>
+        </div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:20px">
+          <div style="display:flex;align-items:center;gap:8px;font:600 15px/1 Inter,sans-serif"><span style="color:#793421">ES</span><span style="color:rgba(121,52,33,.28)">·</span><span style="color:#5C544C">IT</span></div>
+          <div style="background:#793421;color:#FFFFFF;font:600 16px/1 Inter,sans-serif;padding:14px 22px;border-radius:8px;white-space:nowrap">Hazte socio</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C;margin-top:16px">Cabecera 1440 — comprimida al hacer scroll (60px + sombra) · italiano</div>
+    <div style="width:1440px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08)">
+      <div lang="it" style="height:60px;display:flex;align-items:center;gap:28px;padding:0 72px;box-shadow:0 1px 2px rgba(121,52,33,.06),0 2px 8px rgba(121,52,33,.05)">
+        <img src="assets/ais-logo.png" alt="Associazione Italiani a Siviglia — home" style="height:34px;width:auto;flex-shrink:0">
+        <div style="display:flex;align-items:center;gap:24px;font:500 16px/1 Inter,sans-serif;color:#1C1917">
+          <span style="display:flex;align-items:center;gap:5px">L'Associazione <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span style="display:flex;align-items:center;gap:5px">Eventi <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span>Convenzioni</span>
+          <span style="display:flex;align-items:center;gap:5px">Guida pratica <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span>Notizie</span>
+        </div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:20px">
+          <div style="display:flex;align-items:center;gap:8px;font:600 15px/1 Inter,sans-serif"><span style="color:#5C544C">ES</span><span style="color:rgba(121,52,33,.28)">·</span><span style="color:#793421">IT</span></div>
+          <div style="background:#793421;color:#FFFFFF;font:600 16px/1 Inter,sans-serif;padding:12px 22px;border-radius:8px;white-space:nowrap">Associati</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DROPDOWN OPEN -->
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Panel desplegable abierto — «Eventos»</div>
+    <div style="width:1440px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);padding-bottom:64px">
+      <div style="height:72px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;gap:32px;padding:0 72px">
+        <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+          <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:44px;width:auto">
+          <div style="display:flex;width:60px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28)"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:26px;font:500 16px/1 Inter,sans-serif;color:#1C1917">
+          <span style="display:flex;align-items:center;gap:5px">La Asociación <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span style="display:flex;align-items:center;gap:5px;color:#793421;font-weight:600;position:relative;padding:26px 0;border-bottom:2px solid #793421">Eventos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span>Ventajas socios</span>
+          <span style="display:flex;align-items:center;gap:5px">Guía práctica <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          <span>Noticias</span>
+        </div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:20px">
+          <div style="display:flex;align-items:center;gap:8px;font:600 15px/1 Inter,sans-serif"><span style="color:#793421">ES</span><span style="color:rgba(121,52,33,.28)">·</span><span style="color:#5C544C">IT</span></div>
+          <div style="background:#793421;color:#FFFFFF;font:600 16px/1 Inter,sans-serif;padding:14px 22px;border-radius:8px;white-space:nowrap">Hazte socio</div>
+        </div>
+      </div>
+
+      <div style="background:#FFFFFF;border-bottom:1px solid rgba(121,52,33,.14);box-shadow:0 12px 32px rgba(121,52,33,.07);padding:40px 72px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 300px;gap:48px">
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;gap:14px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><div><div style="font:600 17px/1.4 Inter,sans-serif;color:#1C1917">Calendario</div><div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Todo lo que viene, mes a mes.</div></div></div>
+            <div style="display:flex;gap:14px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M4 22V4a2 2 0 0 1 2-2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 2v6h6"/></svg><div><div style="font:600 17px/1.4 Inter,sans-serif;color:#1C1917">Feria de Italia</div><div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">El evento insignia, con el Ayuntamiento de Sevilla.</div></div></div>
+            <div style="display:flex;gap:14px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg><div><div style="font:600 17px/1.4 Inter,sans-serif;color:#1C1917">AIS Bambini</div><div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Actividades en italiano para niños y familias.</div></div></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;gap:14px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><div><div style="font:600 17px/1.4 Inter,sans-serif;color:#1C1917">Encuentros literarios</div><div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Un libro italiano y una tarde de debate.</div></div></div>
+            <div style="display:flex;gap:14px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg><div><div style="font:600 17px/1.4 Inter,sans-serif;color:#1C1917">Eventos pasados</div><div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Quince años de archivo, con fotos.</div></div></div>
+            <div style="display:flex;gap:14px;align-items:flex-start"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg><div><div style="font:600 17px/1.4 Inter,sans-serif;color:#1C1917">Excursiones</div><div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C">Salidas de un día por Andalucía.</div></div></div>
+          </div>
+          <div style="background:#FEEED6;border-radius:16px;padding:24px">
+            <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#793421;margin-bottom:12px">Lo próximo</div>
+            <div style="font:400 22px/1.28 Fraunces,serif;font-variation-settings:'SOFT' 40,'WONK' 1;color:#1C1917;margin-bottom:8px">X Feria de Italia</div>
+            <div style="font:400 15px/1.55 Inter,sans-serif;color:#5C544C;margin-bottom:16px">26–27 de octubre · Sevilla · Entrada gratuita</div>
+            <div style="display:flex;align-items:center;gap:8px;font:600 15px/1 Inter,sans-serif;color:#793421">Ver el programa <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Pie de página 1440</div>
+    <div style="width:1440px;background:#342B5D;padding:80px 72px 32px;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(121,52,33,.08)">
+      <img src="assets/giralda.png" alt="" style="position:absolute;bottom:-40px;right:72px;height:420px;opacity:.04;filter:brightness(0) invert(1);pointer-events:none">
+      <div style="position:relative;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:48px">
+        <div>
+          <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia" style="height:56px;width:auto;margin-bottom:16px">
+          <div style="display:flex;width:96px;height:3px;box-shadow:0 0 0 .5px rgba(121,52,33,.28);margin-bottom:16px"><div style="flex:1;background:#019E48"></div><div style="flex:1;background:#FFFFFF"></div><div style="flex:1;background:#F84446"></div></div>
+          <div style="font:400 15px/1.55 Inter,sans-serif;color:#FEC191;max-width:30ch">Asociación de italianos en Sevilla. Desde el 14 de febrero de 2010.</div>
+        </div>
+        <div>
+          <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FEC191;margin-bottom:16px">La Asociación</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font:400 15px/1.55 Inter,sans-serif;color:#FFFFFF"><span>Quiénes somos</span><span>Equipo</span><span>Historia</span><span>Estatutos y transparencia</span><span>Prensa</span><span>Colabora con nosotros</span></div>
+        </div>
+        <div>
+          <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FEC191;margin-bottom:16px">Participa</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font:400 15px/1.55 Inter,sans-serif;color:#FFFFFF"><span>Hazte socio</span><span>Ventajas socios</span><span style="font-weight:600">Hazte partner</span><span>Voluntariado</span><span>Patrocinar la Feria</span><span>Newsletter</span></div>
+        </div>
+        <div>
+          <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FEC191;margin-bottom:16px">Recursos</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font:400 15px/1.55 Inter,sans-serif;color:#FFFFFF"><span>Guía práctica</span><span>Preguntas frecuentes</span><span>Directorio italiano</span><span>Galería</span><span>Archivo 2009–2024 ↗</span></div>
+        </div>
+        <div>
+          <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FEC191;margin-bottom:16px">Legal y contacto</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font:400 15px/1.55 Inter,sans-serif;color:#FFFFFF"><span>Contacto</span><span>Política de privacidad</span><span>Política de cookies</span><span>Aviso legal</span><span>Accesibilidad</span></div>
+        </div>
+      </div>
+      <div style="position:relative;margin-top:56px;padding-top:28px;border-top:1px solid rgba(254,193,145,.25);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:36px;font:600 15px/1.3 Inter,sans-serif;color:#FFFFFF;opacity:.75"><span>Ayuntamiento de Sevilla</span><span>Consolato Generale d'Italia</span><span>Com.It.Es.</span></div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+      </div>
+      <div style="position:relative;margin-top:20px;font:400 15px/1.55 Inter,sans-serif;color:#FEC191;display:flex;gap:16px;flex-wrap:wrap"><span>© 2026 Asociación Italiani a Siviglia · Sevilla, España</span><span>info@italianiasiviglia.com</span></div>
+    </div>
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Aviso de cookies — rechazo por defecto, dos botones del mismo peso</div>
+    <div style="width:1440px;background:#F9F9ED;padding:24px 72px 32px">
+      <div style="background:#FFFFFF;border:1px solid rgba(121,52,33,.28);border-radius:16px;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);padding:28px 32px;display:flex;align-items:center;gap:40px">
+        <div style="flex:1">
+          <div style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917;margin-bottom:6px">Cookies</div>
+          <div style="font:400 17px/1.65 Inter,sans-serif;color:#5C544C;max-width:68ch">Usamos cookies propias para que la web funcione y, si nos dejas, cookies de medición para saber qué páginas se leen. Ninguna publicidad. Puedes cambiarlo cuando quieras.</div>
+        </div>
+        <div style="display:flex;gap:12px;flex-shrink:0">
+          <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:15.5px 26px;border-radius:8px">Rechazar</div>
+          <div style="border:1.5px solid #793421;color:#793421;font:600 17px/1 Inter,sans-serif;padding:15.5px 26px;border-radius:8px">Aceptar</div>
+          <div style="color:#5C544C;font:500 17px/1 Inter,sans-serif;padding:15.5px 12px;border-bottom:1.5px solid rgba(121,52,33,.28)">Preferencias</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MOBILE COLUMN -->
+<div style="display:flex;flex-direction:column;gap:48px">
+
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Cabecera 390 — cerrada</div>
+    <div style="width:390px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08)">
+      <div style="height:64px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;justify-content:space-between;padding:0 20px">
+        <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:38px;width:auto">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="background:#793421;color:#FFFFFF;font:600 15px/1 Inter,sans-serif;padding:13px 16px;border-radius:8px">Hazte socio</div>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Menú móvil abierto 390 — hoja completa</div>
+    <div style="width:390px;height:844px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08),0 12px 32px rgba(121,52,33,.07);display:flex;flex-direction:column">
+      <div style="height:64px;border-bottom:1px solid rgba(121,52,33,.14);display:flex;align-items:center;justify-content:space-between;padding:0 20px;flex-shrink:0">
+        <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia — inicio" style="height:38px;width:auto">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </div>
+      <div style="padding:20px;flex-shrink:0">
+        <div style="display:flex;border:1.5px solid #793421;border-radius:8px;overflow:hidden;height:48px">
+          <div style="flex:1;background:#793421;color:#FFFFFF;font:600 16px/48px Inter,sans-serif;text-align:center">Español</div>
+          <div style="flex:1;color:#793421;font:600 16px/48px Inter,sans-serif;text-align:center">Italiano</div>
+        </div>
+      </div>
+      <div style="flex:1;overflow:hidden;padding:0 20px">
+        <div style="border-top:1px solid rgba(121,52,33,.14);padding:18px 0;display:flex;align-items:center;justify-content:space-between">
+          <span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">La Asociación</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div style="border-top:1px solid rgba(121,52,33,.14);padding:18px 0">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <span style="font:600 20px/1.35 Inter,sans-serif;color:#793421">Eventos</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg)"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding-left:4px">
+            <span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917;padding:11px 0">Calendario</span>
+            <span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917;padding:11px 0">Feria de Italia</span>
+            <span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917;padding:11px 0">AIS Bambini</span>
+            <span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917;padding:11px 0">Encuentros literarios</span>
+            <span style="font:400 17px/1.65 Inter,sans-serif;color:#1C1917;padding:11px 0">Eventos pasados</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(121,52,33,.14);padding:18px 0"><span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">Ventajas socios</span></div>
+        <div style="border-top:1px solid rgba(121,52,33,.14);padding:18px 0;display:flex;align-items:center;justify-content:space-between">
+          <span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">Guía práctica</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div style="border-top:1px solid rgba(121,52,33,.14);border-bottom:1px solid rgba(121,52,33,.14);padding:18px 0"><span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">Noticias</span></div>
+      </div>
+      <div style="padding:20px;border-top:1px solid rgba(121,52,33,.14);background:#F9F9ED;flex-shrink:0">
+        <div style="background:#793421;color:#FFFFFF;font:600 17px/1 Inter,sans-serif;padding:17px;border-radius:8px;text-align:center">Hazte socio</div>
+        <div style="display:flex;justify-content:center;gap:20px;margin-top:18px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Menú móvil — italiano seleccionado</div>
+    <div lang="it" style="width:390px;background:#F9F9ED;box-shadow:0 4px 12px rgba(121,52,33,.08);padding:20px">
+      <div style="display:flex;border:1.5px solid #793421;border-radius:8px;overflow:hidden;height:48px;margin-bottom:20px">
+        <div style="flex:1;color:#793421;font:600 16px/48px Inter,sans-serif;text-align:center">Spagnolo</div>
+        <div style="flex:1;background:#793421;color:#FFFFFF;font:600 16px/48px Inter,sans-serif;text-align:center">Italiano</div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div style="border-top:1px solid rgba(121,52,33,.14);padding:18px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">L'Associazione</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div style="border-top:1px solid rgba(121,52,33,.14);padding:18px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">Eventi</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div style="border-top:1px solid rgba(121,52,33,.14);padding:18px 0"><span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">Convenzioni</span></div>
+        <div style="border-top:1px solid rgba(121,52,33,.14);padding:18px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">Guida pratica</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#793421" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div style="border-top:1px solid rgba(121,52,33,.14);border-bottom:1px solid rgba(121,52,33,.14);padding:18px 0"><span style="font:600 20px/1.35 Inter,sans-serif;color:#1C1917">Notizie</span></div>
+      </div>
+      <div style="background:#793421;color:#FFFFFF;font:600 17px/1 Inter,sans-serif;padding:17px;border-radius:8px;text-align:center;margin-top:20px">Associati</div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font:600 13px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#5C544C">Pie de página 390</div>
+    <div style="width:390px;background:#342B5D;padding:48px 20px 28px;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(121,52,33,.08)">
+      <img src="assets/giralda.png" alt="" style="position:absolute;bottom:-20px;right:12px;height:240px;opacity:.05;filter:brightness(0) invert(1);pointer-events:none">
+      <img src="assets/ais-logo.png" alt="Asociación Italiani a Siviglia" style="height:48px;width:auto;margin-bottom:20px;position:relative">
+      <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:28px 20px">
+        <div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FEC191;margin-bottom:12px">La Asociación</div><div style="display:flex;flex-direction:column;gap:9px;font:400 14px/1.55 Inter,sans-serif;color:#FFFFFF"><span>Quiénes somos</span><span>Equipo</span><span>Historia</span><span>Estatutos</span><span>Prensa</span><span>Colabora</span></div></div>
+        <div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FEC191;margin-bottom:12px">Participa</div><div style="display:flex;flex-direction:column;gap:9px;font:400 14px/1.55 Inter,sans-serif;color:#FFFFFF"><span>Hazte socio</span><span>Ventajas socios</span><span style="font-weight:600">Hazte partner</span><span>Voluntariado</span><span>Patrocinar la Feria</span><span>Newsletter</span></div></div>
+        <div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FEC191;margin-bottom:12px">Recursos</div><div style="display:flex;flex-direction:column;gap:9px;font:400 14px/1.55 Inter,sans-serif;color:#FFFFFF"><span>Guía práctica</span><span>Preguntas frecuentes</span><span>Directorio italiano</span><span>Galería</span><span>Archivo 2009–2024 ↗</span></div></div>
+        <div><div style="font:600 12px/1.3 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#FEC191;margin-bottom:12px">Legal y contacto</div><div style="display:flex;flex-direction:column;gap:9px;font:400 14px/1.55 Inter,sans-serif;color:#FFFFFF"><span>Contacto</span><span>Privacidad</span><span>Cookies</span><span>Aviso legal</span><span>Accesibilidad</span></div></div>
+      </div>
+      <div style="position:relative;margin-top:32px;padding-top:20px;border-top:1px solid rgba(254,193,145,.25);display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px 16px;font:600 13px/1.4 Inter,sans-serif;color:#FFFFFF;opacity:.75"><span>Ayuntamiento de Sevilla</span><span>Consolato Generale d'Italia</span><span>Com.It.Es.</span></div>
+        <div style="display:flex;gap:14px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <div style="font:400 13px/1.55 Inter,sans-serif;color:#FEC191">© 2026 Asociación Italiani a Siviglia · Sevilla, España<br>info@italianiasiviglia.com</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

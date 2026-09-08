@@ -1,0 +1,125 @@
+{
+  "_comment": "Roles open at AIS. For an association most of these are volunteer/board roles, not salaried jobs — the schema supports both so the same page can carry a paid post if one ever appears. Records below are realistic placeholders: rewrite the copy with the board before publishing. ai-generated",
+  "$schema": "./schemas/career.schema.json",
+  "updated": "2026-09-07",
+  "settings": {
+    "applyEmail": "info@italianiasiviglia.com",
+    "applySubjectTemplate": "[Candidatura] {roleId} — {name}",
+    "showClosedRoles": false,
+    "emptyState": {
+      "es": "Ahora mismo no hay vacantes abiertas, pero siempre hay algo que hacer. Escríbenos y te contamos en qué puedes echar una mano.",
+      "it": "Al momento non ci sono posizioni aperte, ma c'è sempre qualcosa da fare. Scrivici e ti diciamo dove puoi dare una mano."
+    }
+  },
+  "roles": [
+    {
+      "id": "coordinador-eventos",
+      "status": "open",
+      "type": "volunteer",
+      "featured": true,
+      "title": { "es": "Coordinador/a de eventos", "it": "Coordinatore/trice eventi" },
+      "area": "eventos",
+      "commitment": { "es": "4-6 h/semana, flexible", "it": "4-6 h/settimana, flessibile" },
+      "location": { "es": "Sevilla · presencial y remoto", "it": "Siviglia · in presenza e da remoto" },
+      "languages": ["it", "es"],
+      "summary": {
+        "es": "Llevar el calendario de actividades de un mes a otro: proponer, reservar, coordinar con los ponentes y estar el día del evento.",
+        "it": "Portare avanti il calendario delle attività di mese in mese: proporre, prenotare, coordinare con i relatori ed esserci il giorno dell'evento."
+      },
+      "responsibilities": {
+        "es": ["Proponer y planificar 1-2 actividades al mes", "Reservar espacios y coordinar con ponentes y colaboradores", "Preparar la ficha del evento para la web y las redes", "Estar presente el día del evento y recoger fotos"],
+        "it": ["Proporre e pianificare 1-2 attività al mese", "Prenotare spazi e coordinare relatori e collaboratori", "Preparare la scheda evento per il sito e i social", "Essere presente il giorno dell'evento e raccogliere foto"]
+      },
+      "requirements": {
+        "es": ["Italiano y español fluidos", "Residir en Sevilla o alrededores", "Organización y ganas de trato con gente"],
+        "it": ["Italiano e spagnolo fluenti", "Residenza a Siviglia o dintorni", "Organizzazione e voglia di stare con le persone"]
+      },
+      "niceToHave": { "es": ["Experiencia previa en asociaciones o eventos"], "it": ["Esperienza precedente in associazioni o eventi"] },
+      "offers": {
+        "es": ["Cuota de socio gratuita", "Acceso a toda la red de la asociación", "Certificado de voluntariado"],
+        "it": ["Quota associativa gratuita", "Accesso a tutta la rete dell'associazione", "Attestato di volontariato"]
+      },
+      "compensation": { "paid": false, "amount": null, "currency": "EUR", "period": null },
+      "contactPerson": "TODO_nombre",
+      "postedAt": "2026-09-01",
+      "closesAt": null
+    },
+    {
+      "id": "social-media-manager",
+      "status": "open",
+      "type": "volunteer",
+      "featured": true,
+      "title": { "es": "Responsable de redes sociales", "it": "Responsabile social media" },
+      "area": "comunicacion",
+      "commitment": { "es": "2-3 h/semana, remoto", "it": "2-3 h/settimana, da remoto" },
+      "location": { "es": "Remoto", "it": "Da remoto" },
+      "languages": ["it", "es"],
+      "summary": {
+        "es": "Mantener viva la cuenta de Instagram y la de Facebook: calendario de publicaciones, carteles y stories de los eventos.",
+        "it": "Tenere viva l'account Instagram e quello Facebook: calendario delle pubblicazioni, locandine e storie degli eventi."
+      },
+      "responsibilities": {
+        "es": ["Planificar y publicar 3-4 posts al mes", "Diseñar los carteles en Canva siguiendo la línea gráfica", "Cubrir los eventos en stories", "Responder mensajes y derivar los que sean consultas"],
+        "it": ["Pianificare e pubblicare 3-4 post al mese", "Disegnare le locandine in Canva seguendo la linea grafica", "Coprire gli eventi nelle storie", "Rispondere ai messaggi e smistare le richieste"]
+      },
+      "requirements": { "es": ["Italiano y español escritos correctos", "Manejo de Canva e Instagram"], "it": ["Italiano e spagnolo scritti corretti", "Uso di Canva e Instagram"] },
+      "niceToHave": { "es": ["Nociones de fotografía o edición de vídeo"], "it": ["Nozioni di fotografia o montaggio video"] },
+      "offers": { "es": ["Cuota de socio gratuita", "Libertad creativa"], "it": ["Quota associativa gratuita", "Libertà creativa"] },
+      "compensation": { "paid": false, "amount": null, "currency": "EUR", "period": null },
+      "contactPerson": "TODO_nombre",
+      "postedAt": "2026-09-01",
+      "closesAt": null
+    },
+    {
+      "id": "monitor-ais-bambini",
+      "status": "open",
+      "type": "volunteer",
+      "featured": false,
+      "title": { "es": "Monitor/a AIS Bambini", "it": "Animatore/trice AIS Bambini" },
+      "area": "bambini",
+      "commitment": { "es": "1 sábado al mes", "it": "1 sabato al mese" },
+      "location": { "es": "Sevilla · presencial", "it": "Siviglia · in presenza" },
+      "languages": ["it"],
+      "summary": {
+        "es": "Preparar y dinamizar las actividades en italiano para los niños de las familias socias.",
+        "it": "Preparare e animare le attività in italiano per i bambini delle famiglie socie."
+      },
+      "responsibilities": { "es": ["Preparar la actividad del mes", "Dinamizar el grupo (6-12 años)", "Coordinarse con las familias"], "it": ["Preparare l'attività del mese", "Animare il gruppo (6-12 anni)", "Coordinarsi con le famiglie"] },
+      "requirements": { "es": ["Italiano nativo o C1", "Experiencia con niños"], "it": ["Italiano madrelingua o C1", "Esperienza con i bambini"] },
+      "niceToHave": { "es": ["Formación en educación o animación sociocultural"], "it": ["Formazione in educazione o animazione socioculturale"] },
+      "offers": { "es": ["Cuota de socio gratuita para la familia"], "it": ["Quota associativa gratuita per la famiglia"] },
+      "compensation": { "paid": false, "amount": null, "currency": "EUR", "period": null },
+      "contactPerson": "TODO_nombre",
+      "postedAt": "2026-09-01",
+      "closesAt": null
+    },
+    {
+      "id": "tesorero",
+      "status": "closed",
+      "type": "board",
+      "featured": false,
+      "title": { "es": "Tesorero/a", "it": "Tesoriere" },
+      "area": "junta",
+      "commitment": { "es": "Cargo de la junta directiva, mandato de 2 años", "it": "Carica della giunta direttiva, mandato di 2 anni" },
+      "location": { "es": "Sevilla", "it": "Siviglia" },
+      "languages": ["it", "es"],
+      "summary": { "es": "Cargo cubierto. Se renueva en la próxima asamblea.", "it": "Carica coperta. Si rinnova alla prossima assemblea." },
+      "responsibilities": { "es": [], "it": [] },
+      "requirements": { "es": [], "it": [] },
+      "niceToHave": { "es": [], "it": [] },
+      "offers": { "es": [], "it": [] },
+      "compensation": { "paid": false, "amount": null, "currency": "EUR", "period": null },
+      "contactPerson": null,
+      "postedAt": "2025-01-01",
+      "closesAt": "2026-01-01"
+    }
+  ],
+  "areas": [
+    { "id": "eventos", "label": { "es": "Eventos", "it": "Eventi" } },
+    { "id": "comunicacion", "label": { "es": "Comunicación", "it": "Comunicazione" } },
+    { "id": "bambini", "label": { "es": "AIS Bambini", "it": "AIS Bambini" } },
+    { "id": "convenios", "label": { "es": "Convenios y partners", "it": "Convenzioni e partner" } },
+    { "id": "junta", "label": { "es": "Junta directiva", "it": "Giunta direttiva" } },
+    { "id": "tecnologia", "label": { "es": "Web y tecnología", "it": "Sito e tecnologia" } }
+  ]
+}

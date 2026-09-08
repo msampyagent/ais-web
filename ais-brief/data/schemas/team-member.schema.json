@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://italianiasiviglia.com/schemas/team-member.schema.json",
+  "title": "Team member",
+  "description": "A board member or coordinator shown on /asociacion/equipo | /associazione/direttivo. GDPR: photo, email and bio are all optional and require the person's written consent — 'public: false' keeps the record for internal use without rendering it. ai-generated",
+  "type": "object",
+  "required": ["id", "name", "role", "public"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "order": { "type": "integer", "minimum": 1, "description": "Display order. Board hierarchy, not alphabetical." },
+    "name": { "type": "string" },
+    "role": { "type": "object", "required": ["it", "es"], "properties": { "it": { "type": "string" }, "es": { "type": "string" } }, "additionalProperties": false },
+    "photo": { "type": ["string", "null"], "description": "Square, min 600x600, /assets/team/. null renders an initials monogram." },
+    "bio": { "type": ["object", "null"], "properties": { "it": { "type": "string", "maxLength": 280 }, "es": { "type": "string", "maxLength": 280 } }, "additionalProperties": false },
+    "email": { "type": ["string", "null"], "format": "email", "description": "Prefer a role alias (presidencia@…) over a personal address." },
+    "linkedin": { "type": ["string", "null"], "format": "uri" },
+    "since": { "type": ["string", "null"] },
+    "public": { "type": "boolean", "default": false, "description": "Consent flag. false = never rendered." }
+  }
+}

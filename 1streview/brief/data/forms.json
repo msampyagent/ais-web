@@ -1,0 +1,132 @@
+{
+  "_comment": "Form definitions. The renderer reads this file — adding a field never means touching a template. ai-generated",
+  "updated": "2026-09-07",
+
+  "become-partner": {
+    "id": "become-partner",
+    "route": { "es": "/es/ventajas-socios/hazte-partner", "it": "/it/convenzioni/diventa-partner" },
+    "title": { "es": "Hazte partner de AIS", "it": "Diventa partner di AIS" },
+    "intro": {
+      "es": "¿Te gustaría ofrecer descuentos exclusivos a los socios de AIS y dar a conocer tu negocio a la comunidad italiana de Sevilla? Rellena esto en un minuto — nos llega directo y te contestamos.",
+      "it": "Ti piacerebbe offrire sconti esclusivi ai soci AIS e far conoscere la tua attività alla comunità italiana di Siviglia? Compila in un minuto — ci arriva diretto e ti rispondiamo."
+    },
+    "submitLabel": { "es": "Enviar propuesta", "it": "Invia proposta" },
+    "successMessage": {
+      "es": "Recibido. Te escribimos a tu correo en los próximos días para cerrar los detalles del convenio.",
+      "it": "Ricevuto. Ti scriviamo alla tua email nei prossimi giorni per definire i dettagli della convenzione."
+    },
+    "layout": "two-step-progressive",
+    "layoutNote": "Step 1 shows only the 5 required fields — that is the '1 click' promise. Everything optional sits behind a single 'Añadir logo, mapa y redes / Aggiungi logo, mappa e social' disclosure, open by default on desktop, closed on mobile. Never gate submit on the optional block.",
+
+    "fields": [
+      { "name": "businessName", "type": "text", "required": true, "maxLength": 80, "autocomplete": "organization",
+        "label": { "es": "Nombre del negocio", "it": "Nome dell'attività" } },
+      { "name": "contactName", "type": "text", "required": true, "maxLength": 80, "autocomplete": "name",
+        "label": { "es": "Persona de contacto", "it": "Persona di contatto" } },
+      { "name": "email", "type": "email", "required": true, "autocomplete": "email",
+        "label": { "es": "Email", "it": "Email" },
+        "help": { "es": "Te responderemos aquí.", "it": "Ti risponderemo qui." } },
+      { "name": "category", "type": "select", "required": true, "optionsFrom": "convenios.json#/categories",
+        "label": { "es": "Categoría", "it": "Categoria" } },
+      { "name": "benefit", "type": "text", "required": true, "maxLength": 160,
+        "label": { "es": "Descuento o ventaja para socios", "it": "Sconto o vantaggio per i soci" },
+        "placeholder": { "es": "Ej.: 10% en todos los servicios", "it": "Es.: 10% su tutti i servizi" } },
+
+      { "name": "_divider_optional", "type": "disclosure",
+        "label": { "es": "Añadir logo, mapa y redes (opcional)", "it": "Aggiungi logo, mappa e social (facoltativo)" } },
+
+      { "name": "phone", "type": "tel", "required": false, "autocomplete": "tel",
+        "label": { "es": "Teléfono", "it": "Telefono" } },
+      { "name": "address", "type": "text", "required": false, "maxLength": 140, "autocomplete": "street-address",
+        "label": { "es": "Dirección", "it": "Indirizzo" } },
+      { "name": "mapsUrl", "type": "url", "required": false,
+        "label": { "es": "Enlace de Google Maps", "it": "Link Google Maps" },
+        "help": { "es": "Pega el enlace de «Compartir» de tu ficha.", "it": "Incolla il link «Condividi» della tua scheda." } },
+      { "name": "website", "type": "url", "required": false,
+        "label": { "es": "Sitio web", "it": "Sito web" } },
+      { "name": "instagram", "type": "text", "required": false, "maxLength": 60,
+        "label": { "es": "Instagram", "it": "Instagram" }, "placeholder": { "es": "@tunegocio", "it": "@tuaattivita" } },
+      { "name": "facebook", "type": "url", "required": false,
+        "label": { "es": "Facebook", "it": "Facebook" } },
+      { "name": "description", "type": "textarea", "required": false, "maxLength": 220, "rows": 3,
+        "label": { "es": "Describe tu negocio en dos líneas", "it": "Descrivi la tua attività in due righe" },
+        "help": { "es": "Es el texto que aparecerá en tu ficha.", "it": "È il testo che comparirà nella tua scheda." } },
+      { "name": "logo", "type": "file", "required": false, "accept": ["image/png", "image/jpeg", "image/svg+xml", "image/webp"], "maxSizeMB": 5,
+        "label": { "es": "Logo", "it": "Logo" },
+        "help": { "es": "PNG con fondo transparente si puedes. Máx. 5 MB.", "it": "PNG con sfondo trasparente se puoi. Max 5 MB." } },
+
+      { "name": "consent", "type": "checkbox", "required": true,
+        "label": { "es": "He leído y acepto la política de privacidad.", "it": "Ho letto e accetto l'informativa privacy." },
+        "linkTo": { "es": "/es/legal/privacidad", "it": "/it/legale/privacy" } },
+      { "name": "website_url", "type": "honeypot", "required": false, "label": { "es": "", "it": "" },
+        "note": "Hidden anti-spam field. Any submission with this filled is silently dropped." }
+    ],
+
+    "antispam": {
+      "honeypot": "website_url",
+      "minFillSeconds": 3,
+      "captcha": { "provider": "cloudflare-turnstile", "url": "https://www.cloudflare.com/application-services/products/turnstile/", "note": "Free, no cookie banner needed, invisible mode." },
+      "rateLimit": "5 submissions per IP per hour"
+    },
+
+    "delivery": {
+      "method": "serverless-function",
+      "endpoint": "POST /api/partner",
+      "to": "info@italianiasiviglia.com",
+      "replyTo": "{{email}}",
+      "subject": "[Nuevo partner] {{businessName}} — {{category}}",
+      "attachments": ["logo"],
+      "providers": [
+        { "name": "Resend", "url": "https://resend.com/pricing", "freeTier": "3.000 emails/mes, 100/día", "why": "API de 3 líneas, dominio propio, adjuntos. La opción por defecto." },
+        { "name": "Brevo (ex Sendinblue)", "url": "https://www.brevo.com/pricing/", "freeTier": "300 emails/día", "why": "Alternativa europea, servidores en la UE — argumento GDPR más cómodo." },
+        { "name": "Web3Forms", "url": "https://web3forms.com/", "freeTier": "250 envíos/mes", "why": "Sin backend: un action= y listo. Para arrancar el mismo día." },
+        { "name": "Formspree", "url": "https://formspree.io/plans", "freeTier": "50 envíos/mes", "why": "Igual de simple, cuota gratuita más baja." }
+      ],
+      "hosting": [
+        { "name": "Cloudflare Pages + Pages Functions", "url": "https://developers.cloudflare.com/pages/functions/", "why": "Gratis, la función vive junto al sitio, Turnstile incluido. Recomendado." },
+        { "name": "Netlify Functions", "url": "https://docs.netlify.com/functions/overview/", "why": "Equivalente si prefieres Netlify." }
+      ],
+      "emailBodyNote": "The function must send TWO blocks: (1) a human-readable summary the board can read on a phone, and (2) a fenced JSON block already matching convenio.schema.json with status:'pending'. The board approves by pasting that block into convenios.json and committing — that is the whole editorial workflow, no CMS needed.",
+      "autoReply": {
+        "enabled": true,
+        "subject": { "es": "Hemos recibido tu propuesta — AIS", "it": "Abbiamo ricevuto la tua proposta — AIS" },
+        "body": { "es": "Gracias por proponer un convenio con la Asociación Italiani a Siviglia. Lo revisamos en la próxima reunión de la junta y te escribimos.", "it": "Grazie per aver proposto una convenzione con l'Associazione Italiani a Siviglia. La esaminiamo alla prossima riunione del direttivo e ti scriviamo." }
+      }
+    },
+
+    "gdpr": {
+      "controller": "Asociación Italiani a Siviglia",
+      "purpose": { "es": "Gestionar tu propuesta de convenio y publicar tu ficha si se aprueba.", "it": "Gestire la tua proposta di convenzione e pubblicare la tua scheda se approvata." },
+      "legalBasis": "consentimiento (art. 6.1.a RGPD)",
+      "retention": { "es": "12 meses si no se formaliza el convenio.", "it": "12 mesi se la convenzione non viene formalizzata." },
+      "rights": { "es": "Acceso, rectificación, supresión y oposición escribiendo a info@italianiasiviglia.com", "it": "Accesso, rettifica, cancellazione e opposizione scrivendo a info@italianiasiviglia.com" }
+    }
+  },
+
+  "contact": {
+    "id": "contact",
+    "route": { "es": "/es/contacto", "it": "/it/contatti" },
+    "fields": [
+      { "name": "name", "type": "text", "required": true, "label": { "es": "Nombre", "it": "Nome" } },
+      { "name": "email", "type": "email", "required": true, "label": { "es": "Email", "it": "Email" } },
+      { "name": "topic", "type": "select", "required": true, "label": { "es": "Motivo", "it": "Motivo" },
+        "options": [
+          { "value": "socio", "label": { "es": "Quiero hacerme socio", "it": "Voglio associarmi" } },
+          { "value": "evento", "label": { "es": "Consulta sobre un evento", "it": "Domanda su un evento" } },
+          { "value": "convenio", "label": { "es": "Propuesta de convenio", "it": "Proposta di convenzione" } },
+          { "value": "prensa", "label": { "es": "Prensa", "it": "Stampa" } },
+          { "value": "otro", "label": { "es": "Otro", "it": "Altro" } }
+        ] },
+      { "name": "message", "type": "textarea", "required": true, "rows": 5, "label": { "es": "Mensaje", "it": "Messaggio" } },
+      { "name": "consent", "type": "checkbox", "required": true, "label": { "es": "Acepto la política de privacidad.", "it": "Accetto l'informativa privacy." } }
+    ],
+    "delivery": { "method": "serverless-function", "endpoint": "POST /api/contact", "to": "info@italianiasiviglia.com", "replyTo": "{{email}}" }
+  },
+
+  "join": {
+    "id": "join",
+    "route": { "es": "/es/hazte-socio", "it": "/it/associati" },
+    "note": "Same engine. Fields: nombre, apellidos, email, teléfono, año de llegada a Sevilla, ciudad/región de origen en Italia, intereses (multi-check: eventi, bambini, cucina, escursioni, cultura, volontariato), consentimiento. Adds a members-only mailing-list opt-in as a SEPARATE checkbox — never bundled with the privacy consent.",
+    "delivery": { "method": "serverless-function", "endpoint": "POST /api/join", "to": "info@italianiasiviglia.com" }
+  }
+}

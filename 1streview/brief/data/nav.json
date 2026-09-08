@@ -1,0 +1,118 @@
+{
+  "_comment": "Navigation split. 'primary' = top bar (max 6 items, task-driven). 'footer' = 4 columns (trust, legal, long tail). Every slug exists in both locales. ai-generated",
+
+  "primary": [
+    {
+      "id": "about",
+      "label": { "es": "La Asociación", "it": "L'Associazione" },
+      "slug": { "es": "asociacion", "it": "associazione" },
+      "children": [
+        { "id": "who", "label": { "es": "Quiénes somos", "it": "Chi siamo" }, "slug": { "es": "asociacion/quienes-somos", "it": "associazione/chi-siamo" } },
+        { "id": "team", "label": { "es": "Equipo", "it": "Direttivo" }, "slug": { "es": "asociacion/equipo", "it": "associazione/direttivo" } },
+        { "id": "history", "label": { "es": "Historia", "it": "Storia" }, "slug": { "es": "asociacion/historia", "it": "associazione/storia" } },
+        { "id": "statute", "label": { "es": "Estatutos y transparencia", "it": "Statuto e trasparenza" }, "slug": { "es": "asociacion/estatutos", "it": "associazione/statuto" } }
+      ]
+    },
+    {
+      "id": "events",
+      "label": { "es": "Eventos", "it": "Eventi" },
+      "slug": { "es": "eventos", "it": "eventi" },
+      "children": [
+        { "id": "calendar", "label": { "es": "Calendario", "it": "Calendario" }, "slug": { "es": "eventos", "it": "eventi" }, "sameAsParent": true, "_note": "Intentionally the same URL as the parent — the dropdown's first item links to the index itself. Not a duplicate-URL bug." },
+        { "id": "feria", "label": { "es": "Feria de Italia", "it": "Feria de Italia" }, "slug": { "es": "eventos/feria-de-italia", "it": "eventi/feria-de-italia" } },
+        { "id": "bambini", "label": { "es": "AIS Bambini", "it": "AIS Bambini" }, "slug": { "es": "eventos/ais-bambini", "it": "eventi/ais-bambini" } },
+        { "id": "letterari", "label": { "es": "Encuentros literarios", "it": "Incontri letterari" }, "slug": { "es": "eventos/encuentros-literarios", "it": "eventi/incontri-letterari" } },
+        { "id": "archive", "label": { "es": "Eventos pasados", "it": "Eventi passati" }, "slug": { "es": "eventos/archivo", "it": "eventi/archivio" } }
+      ]
+    },
+    {
+      "id": "convenios",
+      "label": { "es": "Ventajas socios", "it": "Convenzioni" },
+      "slug": { "es": "ventajas-socios", "it": "convenzioni" },
+      "badge": { "es": "Nuevo", "it": "Novità" }
+    },
+    {
+      "id": "guide",
+      "label": { "es": "Guía práctica", "it": "Guida pratica" },
+      "slug": { "es": "guia-italianos-sevilla", "it": "guida-italiani-siviglia" },
+      "seoNote": "Cluster de captación orgánica: AIRE, consulado, sanidad, NIE, escuela, mudanza. Es la puerta de entrada SEO principal.",
+      "children": [
+        { "id": "aire", "label": { "es": "AIRE y consulado", "it": "AIRE e consolato" }, "slug": { "es": "guia-italianos-sevilla/aire-consulado", "it": "guida-italiani-siviglia/aire-consolato" } },
+        { "id": "comites", "label": { "es": "Com.It.Es. y voto", "it": "Com.It.Es. e voto" }, "slug": { "es": "guia-italianos-sevilla/comites-voto", "it": "guida-italiani-siviglia/comites-voto" } },
+        { "id": "arrive", "label": { "es": "Llegar a Sevilla", "it": "Arrivare a Siviglia" }, "slug": { "es": "guia-italianos-sevilla/llegar-a-sevilla", "it": "guida-italiani-siviglia/arrivare-a-siviglia" } },
+        { "id": "italianfood", "label": { "es": "Dónde comprar italiano", "it": "Dove comprare italiano" }, "slug": { "es": "guia-italianos-sevilla/comprar-productos-italianos", "it": "guida-italiani-siviglia/comprare-prodotti-italiani" } }
+      ]
+    },
+    {
+      "id": "news",
+      "label": { "es": "Noticias", "it": "Notizie" },
+      "slug": { "es": "noticias", "it": "notizie" }
+    },
+    {
+      "id": "join",
+      "label": { "es": "Hazte socio", "it": "Associati" },
+      "slug": { "es": "hazte-socio", "it": "associati" },
+      "style": "cta-primary"
+    }
+  ],
+
+  "footer": [
+    {
+      "column": { "es": "La Asociación", "it": "L'Associazione" },
+      "items": [
+        { "ref": "who" },
+        { "ref": "team" },
+        { "ref": "history" },
+        { "ref": "statute" },
+        { "id": "press", "label": { "es": "Prensa / Dicono di noi", "it": "Stampa / Dicono di noi" }, "slug": { "es": "prensa", "it": "stampa" } },
+        { "id": "careers", "label": { "es": "Colabora con nosotros", "it": "Collabora con noi" }, "slug": { "es": "colabora", "it": "collabora" } }
+      ]
+    },
+    {
+      "column": { "es": "Participa", "it": "Partecipa" },
+      "items": [
+        { "ref": "join" },
+        { "ref": "convenios" },
+        { "id": "become-partner", "label": { "es": "Hazte partner", "it": "Diventa partner" }, "slug": { "es": "ventajas-socios/hazte-partner", "it": "convenzioni/diventa-partner" } },
+        { "id": "volunteer", "label": { "es": "Voluntariado", "it": "Volontariato" }, "slug": { "es": "colabora/voluntariado", "it": "collabora/volontariato" } },
+        { "id": "sponsor", "label": { "es": "Patrocinar la Feria", "it": "Sponsorizzare la Feria" }, "slug": { "es": "eventos/feria-de-italia/patrocinio", "it": "eventi/feria-de-italia/sponsor" } },
+        { "id": "newsletter", "label": { "es": "Newsletter", "it": "Newsletter" }, "slug": { "es": "newsletter", "it": "newsletter" } }
+      ]
+    },
+    {
+      "column": { "es": "Recursos", "it": "Risorse" },
+      "items": [
+        { "ref": "guide" },
+        { "id": "faq", "label": { "es": "Preguntas frecuentes", "it": "Domande frequenti" }, "slug": { "es": "faq", "it": "faq" } },
+        { "id": "directory", "label": { "es": "Directorio italiano en Sevilla", "it": "Directory italiana a Siviglia" }, "slug": { "es": "directorio", "it": "directory" } },
+        { "id": "gallery", "label": { "es": "Galería", "it": "Galleria" }, "slug": { "es": "galeria", "it": "galleria" } },
+        { "id": "archive-blog", "label": { "es": "Archivo histórico 2009-2024", "it": "Archivio storico 2009-2024" }, "external": "https://italianiasiviglia.blogspot.com/" }
+      ]
+    },
+    {
+      "column": { "es": "Legal y contacto", "it": "Legale e contatti" },
+      "items": [
+        { "id": "contact", "label": { "es": "Contacto", "it": "Contatti" }, "slug": { "es": "contacto", "it": "contatti" } },
+        { "id": "privacy", "label": { "es": "Política de privacidad", "it": "Informativa privacy" }, "slug": { "es": "legal/privacidad", "it": "legale/privacy" } },
+        { "id": "cookies", "label": { "es": "Política de cookies", "it": "Cookie policy" }, "slug": { "es": "legal/cookies", "it": "legale/cookie" } },
+        { "id": "terms", "label": { "es": "Aviso legal", "it": "Note legali" }, "slug": { "es": "legal/aviso-legal", "it": "legale/note-legali" } },
+        { "id": "accessibility", "label": { "es": "Accesibilidad", "it": "Accessibilità" }, "slug": { "es": "legal/accesibilidad", "it": "legale/accessibilita" } }
+      ]
+    }
+  ],
+
+  "utility": {
+    "_comment": "Small links in the top bar, right of the primary nav.",
+    "items": [
+      { "id": "lang", "type": "language-switcher" },
+      { "id": "search", "type": "search", "label": { "es": "Buscar", "it": "Cerca" } },
+      { "id": "contact-quick", "type": "link", "label": { "es": "Contacto", "it": "Contatti" }, "slug": { "es": "contacto", "it": "contatti" }, "duplicateOf": "contact", "_note": "Same page as the footer 'contact' link. Intentional: one shortcut in the utility rail, one in the footer." }
+    ]
+  },
+
+  "footerBottom": {
+    "copyright": { "es": "© {year} Asociación Italiani a Siviglia · Sevilla, España", "it": "© {year} Associazione Italiani a Siviglia · Siviglia, Spagna" },
+    "socialIcons": true,
+    "institutionalLogos": true
+  }
+}

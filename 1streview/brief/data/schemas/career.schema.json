@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://italianiasiviglia.com/schemas/career.schema.json",
+  "title": "Role",
+  "description": "One open role at AIS — volunteer, board seat, internship or paid job. Feeds the /colabora | /collabora page and a schema.org/JobPosting JSON-LD block (only when type='paid', otherwise Google rejects it). ai-generated",
+  "type": "object",
+  "required": ["id", "status", "type", "title", "area", "summary"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "kebab-case, also the anchor and the apply-email subject token" },
+    "status": { "type": "string", "enum": ["open", "closed", "filled", "draft"], "description": "Only 'open' renders unless settings.showClosedRoles is true." },
+    "type": { "type": "string", "enum": ["volunteer", "board", "internship", "paid"], "description": "Drives the badge colour and whether JobPosting JSON-LD is emitted." },
+    "featured": { "type": "boolean", "default": false },
+    "title": { "$ref": "#/$defs/i18nText" },
+    "area": { "type": "string", "description": "Must match an id in careers.json > areas[]" },
+    "commitment": { "$ref": "#/$defs/i18nText", "description": "Hours per week / per month, in words. The single most important field for a volunteer role — put it on the card, not just the detail page." },
+    "location": { "$ref": "#/$defs/i18nText" },
+    "languages": { "type": "array", "items": { "type": "string", "enum": ["it", "es", "en"] } },
+    "summary": { "$ref": "#/$defs/i18nText", "description": "Two lines max. This is the card copy." },
+    "responsibilities": { "$ref": "#/$defs/i18nList" },
+    "requirements": { "$ref": "#/$defs/i18nList" },
+    "niceToHave": { "$ref": "#/$defs/i18nList" },
+    "offers": { "$ref": "#/$defs/i18nList", "description": "What the volunteer gets back. Never leave this empty — it is the conversion driver." },
+    "compensation": {
+      "type": "object",
+      "properties": {
+        "paid": { "type": "boolean", "default": false },
+        "amount": { "type": ["number", "null"] },
+        "currency": { "type": "string", "default": "EUR" },
+        "period": { "type": ["string", "null"], "enum": ["hour", "month", "year", "project", null] }
+      },
+      "additionalProperties": false
+    },
+    "contactPerson": { "type": ["string", "null"] },
+    "postedAt": { "type": "string", "format": "date" },
+    "closesAt": { "type": ["string", "null"], "format": "date", "description": "If set and past, the build flips status to 'closed'." }
+  },
+  "$defs": {
+    "i18nText": { "type": "object", "required": ["it", "es"], "properties": { "it": { "type": "string" }, "es": { "type": "string" } }, "additionalProperties": false },
+    "i18nList": {
+      "type": "object", "required": ["it", "es"],
+      "properties": { "it": { "type": "array", "items": { "type": "string" } }, "es": { "type": "array", "items": { "type": "string" } } },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "_comment": "News / Noticias / Notizie. Short posts: recaps, institutional announcements, new convenios, calls for volunteers. Long-form goes in the guide cluster, not here. ai-generated",
+  "$schema": "./schemas/news.schema.json",
+  "updated": "2026-09-07",
+  "items": [
+    {
+      "id": "nuove-convenzioni-2026",
+      "status": "published",
+      "date": "2026-08-20",
+      "category": "convenios",
+      "title": { "es": "Cinco nuevos convenios para los socios de AIS", "it": "Cinque nuove convenzioni per i soci AIS" },
+      "summary": {
+        "es": "Piaceri Italiani, La Cocinera Tremenda, Tomares Dental, Lazzo y MYES se suman a las ventajas para socios.",
+        "it": "Piaceri Italiani, La Cocinera Tremenda, Tomares Dental, Lazzo e MYES si aggiungono ai vantaggi per i soci."
+      },
+      "body": { "es": "TODO", "it": "TODO" },
+      "cover": "/assets/news/2026-08-convenzioni.jpg",
+      "author": "AIS",
+      "relatedTo": { "type": "convenios", "ids": ["piaceri-italiani", "la-cocinera-tremenda", "tomares-dental", "lazzo", "myes-my-english-school"] }
+    }
+  ],
+  "categories": [
+    { "id": "asociacion", "label": { "es": "La asociación", "it": "L'associazione" } },
+    { "id": "eventos", "label": { "es": "Eventos", "it": "Eventi" } },
+    { "id": "convenios", "label": { "es": "Convenios", "it": "Convenzioni" } },
+    { "id": "institucional", "label": { "es": "Institucional", "it": "Istituzionale" } },
+    { "id": "comunidad", "label": { "es": "Comunidad", "it": "Comunità" } }
+  ]
+}

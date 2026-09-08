@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://italianiasiviglia.com/schemas/event.schema.json",
+  "title": "Event",
+  "description": "One AIS event. Maps 1:1 onto schema.org/Event for the JSON-LD block. ai-generated",
+  "type": "object",
+  "required": ["id", "series", "status", "title", "start", "venue"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "series": { "type": "string", "description": "Must match an id in events.json > series[]" },
+    "status": { "type": "string", "enum": ["draft", "published", "past", "cancelled"], "description": "'draft' never renders. The build auto-flips 'published' to 'past' once end (or start) is in the past." },
+    "flagship": { "type": "boolean", "default": false },
+    "edition": { "type": ["string", "null"], "description": "Roman numeral for recurring editions, e.g. 'X'" },
+    "title": { "$ref": "#/$defs/i18nText" },
+    "summary": { "$ref": "#/$defs/i18nText" },
+    "body": { "$ref": "#/$defs/i18nMarkdown", "description": "Optional long description, Markdown." },
+    "start": { "type": "string", "description": "ISO 8601 local datetime, e.g. 2026-10-24T11:30" },
+    "end": { "type": ["string", "null"] },
+    "timezone": { "type": "string", "default": "Europe/Madrid" },
+    "allDay": { "type": "boolean", "default": false },
+    "language": { "type": "array", "items": { "type": "string", "enum": ["it", "es", "en"] }, "description": "Language(s) the event is held in — shown as a chip on the card." },
+    "venue": {
+      "type": "object", "required": ["name", "locality"],
+      "properties": {
+        "name": { "type": "string" }, "address": { "type": ["string", "null"] },
+        "locality": { "type": "string" }, "mapsUrl": { "type": ["string", "null"] },
+        "online": { "type": "boolean", "default": false }
+      }
+    },
+    "price": {
+      "type": "object",
+      "properties": {
+        "members": { "type": ["number", "null"], "description": "0 = free for members, null = unknown/not applicable" },
+        "public": { "type": ["number", "null"] },
+        "currency": { "type": "string", "default": "EUR" },
+        "note": { "$ref": "#/$defs/i18nTextNullable" }
+      }
+    },
+    "registration": {
+      "type": "object",
+      "properties": {
+        "required": { "type": "boolean", "default": false },
+        "type": { "type": "string", "enum": ["none", "email", "form", "eventbrite", "whatsapp"] },
+        "url": { "type": ["string", "null"], "format": "uri" },
+        "email": { "type": ["string", "null"], "format": "email" },
+        "capacity": { "type": ["integer", "null"] }
+      }
+    },
+    "poster": { "type": ["string", "null"], "description": "The Canva-style poster from Instagram. Portrait 4:5. This is the hero of the event card." },
+    "gallery": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "programme": {
+      "type": "array",
+      "description": "Multi-slot programme for large events like the Feria.",
+      "items": {
+        "type": "object", "required": ["day", "title"],
+        "properties": {
+          "day": { "type": "string", "format": "date" }, "time": { "type": ["string", "null"] },
+          "title": { "type": "string" }, "by": { "type": ["string", "null"] },
+          "location": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "organisers": { "type": "array", "items": { "type": "string" } },
+    "endorsedBy": { "type": "array", "items": { "type": "string" } },
+    "sponsors": { "type": "array", "items": { "type": "string" } },
+    "membersOnly": { "type": "boolean", "default": false },
+    "source": { "type": ["string", "null"], "description": "Editorial note on where the record came from. Never rendered." }
+  },
+  "$defs": {
+    "i18nText": { "type": "object", "required": ["it", "es"], "properties": { "it": { "type": "string" }, "es": { "type": "string" } } },
+    "i18nTextNullable": { "type": ["object", "null"], "properties": { "it": { "type": "string" }, "es": { "type": "string" } } },
+    "i18nMarkdown": { "type": ["object", "null"], "properties": { "it": { "type": "string" }, "es": { "type": "string" } } }
+  }
+}

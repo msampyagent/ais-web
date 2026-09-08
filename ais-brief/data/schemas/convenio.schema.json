@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://italianiasiviglia.com/schemas/convenio.schema.json",
+  "title": "Convenio / Convenzione",
+  "description": "A partner business offering a benefit to AIS members. Also the exact shape the 'Diventa partner' lead form produces. ai-generated",
+  "type": "object",
+  "required": ["id", "name", "category", "status", "description", "benefit", "address"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "kebab-case slug, stable, used in the URL" },
+    "name": { "type": "string", "minLength": 2, "maxLength": 80 },
+    "category": { "type": "string", "enum": ["restauracion", "alimentacion", "formacion", "salud", "servicios", "ocio", "casa"] },
+    "status": { "type": "string", "enum": ["active", "expired", "pending"], "default": "pending", "description": "'pending' = submitted via the form, not yet approved by the board. Only 'active' renders publicly." },
+    "featured": { "type": "boolean", "default": false, "description": "Shown in the homepage strip (max 4)." },
+    "logo": { "type": ["string", "null"], "description": "Path under /assets/convenios/. Square or wide, transparent PNG/SVG, min 400px." },
+    "description": {
+      "type": "object", "required": ["it", "es"],
+      "properties": { "it": { "type": "string", "maxLength": 220 }, "es": { "type": "string", "maxLength": 220 } },
+      "additionalProperties": false
+    },
+    "benefit": {
+      "type": "object", "required": ["it", "es"],
+      "properties": { "it": { "type": "string", "maxLength": 160 }, "es": { "type": "string", "maxLength": 160 } },
+      "additionalProperties": false
+    },
+    "benefitValue": {
+      "type": "object",
+      "description": "Machine-readable form of 'benefit', used for sorting and filtering by discount size.",
+      "properties": {
+        "type": { "type": "string", "enum": ["percentage", "fixed", "gift", "multiple", "other"] },
+        "amount": { "type": ["number", "null"] },
+        "appliesTo": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "address": {
+      "type": "object", "required": ["street", "locality"],
+      "properties": {
+        "street": { "type": "string" }, "locality": { "type": "string" },
+        "postalCode": { "type": ["string", "null"] }, "country": { "type": "string", "default": "ES" }
+      },
+      "additionalProperties": false
+    },
+    "geo": {
+      "type": "object",
+      "properties": {
+        "lat": { "type": ["number", "null"] }, "lng": { "type": ["number", "null"] },
+        "mapsUrl": { "type": ["string", "null"], "description": "Google Maps share link. Rendered as a link, never as an embedded iframe (cookie/GDPR)." }
+      },
+      "additionalProperties": false
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "phone": { "type": ["string", "null"] }, "email": { "type": ["string", "null"], "format": "email" },
+        "website": { "type": ["string", "null"], "format": "uri" }, "instagram": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "since": { "type": ["string", "null"], "pattern": "^[0-9]{4}$" },
+    "validUntil": { "type": ["string", "null"], "format": "date", "description": "If set and in the past, the build marks status 'expired' and hides the card." }
+  }
+}

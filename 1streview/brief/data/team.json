@@ -1,0 +1,21 @@
+{
+  "_comment": "Giunta Direttiva / Equipo. ALL names below are placeholders — the real board comes from the blogspot post 'CRONOLOGIA GIUNTA DIRETTIVA AIS' and from the board itself. Photos optional: a role with no photo renders an initials monogram in AIS colours, never a grey silhouette. ai-generated",
+  "$schema": "./schemas/team-member.schema.json",
+  "updated": "2026-09-07",
+  "currentTerm": { "from": "TODO_YYYY", "to": "TODO_YYYY", "electedAt": "TODO_fecha_asamblea" },
+  "members": [
+    { "id": "presidente", "order": 1, "name": "TODO Nombre Apellido", "role": { "es": "Presidente/a", "it": "Presidente" }, "photo": null, "bio": { "es": "TODO 1-2 frases: desde cuándo en Sevilla, de dónde en Italia, qué aporta.", "it": "TODO 1-2 frasi: da quando a Siviglia, da dove in Italia, cosa porta." }, "email": null, "linkedin": null, "since": "TODO_YYYY", "public": true },
+    { "id": "vicepresidente", "order": 2, "name": "TODO Nombre Apellido", "role": { "es": "Vicepresidente/a", "it": "Vicepresidente" }, "photo": null, "bio": { "es": "TODO", "it": "TODO" }, "email": null, "linkedin": null, "since": "TODO_YYYY", "public": true },
+    { "id": "secretario", "order": 3, "name": "TODO Nombre Apellido", "role": { "es": "Secretario/a", "it": "Segretario/a" }, "photo": null, "bio": { "es": "TODO", "it": "TODO" }, "email": null, "linkedin": null, "since": "TODO_YYYY", "public": true },
+    { "id": "tesorero", "order": 4, "name": "TODO Nombre Apellido", "role": { "es": "Tesorero/a", "it": "Tesoriere" }, "photo": null, "bio": { "es": "TODO", "it": "TODO" }, "email": null, "linkedin": null, "since": "TODO_YYYY", "public": true },
+    { "id": "vocal-eventos", "order": 5, "name": "TODO Nombre Apellido", "role": { "es": "Vocal de eventos", "it": "Consigliere eventi" }, "photo": null, "bio": { "es": "TODO", "it": "TODO" }, "email": null, "linkedin": null, "since": "TODO_YYYY", "public": true },
+    { "id": "vocal-comunicacion", "order": 6, "name": "TODO Nombre Apellido", "role": { "es": "Vocal de comunicación", "it": "Consigliere comunicazione" }, "photo": null, "bio": { "es": "TODO", "it": "TODO" }, "email": null, "linkedin": null, "since": "TODO_YYYY", "public": true }
+  ],
+  "pastBoards": [
+    { "term": "TODO_YYYY-YYYY", "president": "TODO", "note": { "es": "Ver cronología completa en el archivo histórico.", "it": "Vedi cronologia completa nell'archivio storico." } }
+  ],
+  "volunteersNote": {
+    "es": "Además de la junta, la asociación se mueve gracias a las personas que echan una mano en cada evento. ¿Te apuntas?",
+    "it": "Oltre al direttivo, l'associazione va avanti grazie a chi dà una mano a ogni evento. Ti unisci?"
+  }
+}
