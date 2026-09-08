@@ -4,10 +4,12 @@
  * The fourth guide article, with no dedicated artboard in this batch. New
  * copy written in the same dry register and flagged as unvalidated.
  */
-import { data, routes, routeOf, renderPage, writePage, esc, LOCALES } from '../../build.mjs';
+import { data, routes, routeOf, renderPage, writePage, esc, LOCALES, ORIGIN, fileDate } from '../../build.mjs';
 import { articleShell, articleJsonLd, T } from './index.page.mjs';
 
 const ARTICLE_ID = 'italianfood';
+/** Honest dateModified: this module file's mtime — never an invented date. */
+const ARTICLE_DATE = fileDate(import.meta.url);
 
 const LEAD = {
   es: 'Dónde encontrar producto italiano de verdad en Sevilla: tiendas físicas, mercados, supermercados con sección italiana y algunos consejos prácticos.',
@@ -133,7 +135,11 @@ export default {
         jsonld: articleJsonLd(locale, {
           headline: T[locale].hubTitle,
           description: DESCRIPTION[locale],
+          url: `${ORIGIN}${alternates[locale]}`,
+          dateModified: ARTICLE_DATE,
         }, faq),
+        article: { modified: ARTICLE_DATE },
+        lastmod: ARTICLE_DATE,
         body,
       }));
     }

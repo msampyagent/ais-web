@@ -11,10 +11,12 @@
  * link on this page (Ayuntamiento de Sevilla) is a URL already vetted in
  * ais-brief/data/site.json — nothing here is invented.
  */
-import { data, routes, routeOf, renderPage, writePage, esc, LOCALES } from '../../build.mjs';
+import { data, routes, routeOf, renderPage, writePage, esc, LOCALES, ORIGIN, fileDate } from '../../build.mjs';
 import { articleShell, articleJsonLd, officialLinksCallout } from './index.page.mjs';
 
 const ARTICLE_ID = 'arrive';
+/** Honest dateModified: this module file's mtime — never an invented date. */
+const ARTICLE_DATE = fileDate(import.meta.url);
 
 const LEAD = {
   es: 'Empadronamiento, NIE, buscar piso y moverte por la ciudad: lo primero que hay que resolver al llegar a Sevilla.', // NEW
@@ -131,7 +133,11 @@ export default {
         jsonld: articleJsonLd(locale, {
           headline: locale === 'es' ? 'Llegar a Sevilla' : 'Arrivare a Siviglia',
           description: DESCRIPTION[locale],
+          url: `${ORIGIN}${alternates[locale]}`,
+          dateModified: ARTICLE_DATE,
         }, faq),
+        article: { modified: ARTICLE_DATE },
+        lastmod: ARTICLE_DATE,
         body,
       }));
     }

@@ -15,10 +15,12 @@
  * No election dates, deadlines or mandate lengths are stated, because none
  * are recorded anywhere in ais-brief/data.
  */
-import { data, routes, routeOf, renderPage, writePage, esc, LOCALES } from '../../build.mjs';
+import { data, routes, routeOf, renderPage, writePage, esc, LOCALES, ORIGIN, fileDate } from '../../build.mjs';
 import { articleShell, articleJsonLd, officialLinksCallout } from './index.page.mjs';
 
 const ARTICLE_ID = 'comites';
+/** Honest dateModified: this module file's mtime — never an invented date. */
+const ARTICLE_DATE = fileDate(import.meta.url);
 
 const LEAD = {
   es: 'La representación de los italianos en el exterior y cómo votar desde Sevilla sin viajar a Italia.', // NEW
@@ -131,7 +133,11 @@ export default {
         jsonld: articleJsonLd(locale, {
           headline: locale === 'es' ? 'Com.It.Es. y voto' : 'Com.It.Es. e voto',
           description: DESCRIPTION[locale],
+          url: `${ORIGIN}${alternates[locale]}`,
+          dateModified: ARTICLE_DATE,
         }, faq),
+        article: { modified: ARTICLE_DATE },
+        lastmod: ARTICLE_DATE,
         body,
       }));
     }

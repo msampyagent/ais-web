@@ -30,6 +30,7 @@
   "social": [
     { "network": "instagram", "handle": "@associazioneitalianiasiviglia", "url": "https://www.instagram.com/associazioneitalianiasiviglia/", "primary": true },
     { "network": "facebook", "handle": "AIS - Asociación Italiani a Siviglia", "url": "https://www.facebook.com/italianiasiviglia/", "primary": true },
+    { "network": "whatsapp", "handle": "Canal de WhatsApp", "url": "https://whatsapp.com/channel/0029Vb7RUpwIHphMMRaudI0u", "primary": true },
     { "network": "eventbrite", "handle": "Asociación Italiani a Siviglia", "url": "https://www.eventbrite.es/o/asociacion-italiani-a-siviglia-87854394823", "primary": false },
     { "network": "blog", "handle": "Archivo histórico 2009-2024", "url": "https://italianiasiviglia.blogspot.com/", "primary": false }
   ],

@@ -5,7 +5,7 @@
  * partner preview. The hero carries the sevilla-italia.png skyline
  * illustration next to the title.
  */
-import { data, routes, routeOf, renderPage, writePage, esc, LOCALES } from '../build.mjs';
+import { data, routes, routeOf, renderPage, writePage, esc, LOCALES, ORIGIN } from '../build.mjs';
 import { eventCardHTML, upcomingEvents } from './eventos/index.page.mjs';
 
 const INSTITUTIONS_LABEL = { es: 'Con el apoyo de', it: 'Con il sostegno di' };
@@ -121,6 +121,15 @@ ${partnersSection}`;
         title: `${data.site.org.legalName} — ${data.site.tagline[locale]}`,
         description: data.site.elevatorPitch[locale],
         ogImage: '/assets/img/og-default.png',
+        jsonld: [{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: data.site.org.legalName,
+          alternateName: data.site.org.shortName,
+          url: `${ORIGIN}/${locale}/`,
+          inLanguage: locale,
+          publisher: { '@type': 'Organization', name: data.site.org.legalName },
+        }],
         body,
       }));
     }

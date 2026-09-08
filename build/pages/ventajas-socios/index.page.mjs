@@ -101,12 +101,19 @@ function activeConvenios() {
 }
 
 function convenioLd(item, locale) {
+  const hasGeo = typeof item.geo?.lat === 'number' && typeof item.geo?.lng === 'number';
+  const sameAs = [item.contact?.website, item.contact?.instagram].filter(Boolean);
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: item.name,
     description: item.description[locale],
+    url: `${ORIGIN}${routeOf('convenios', locale)}`,
     ...(item.logo ? { image: `${ORIGIN}${item.logo}` } : {}),
+    ...(item.contact?.phone ? { telephone: item.contact.phone } : {}),
+    ...(item.contact?.email ? { email: item.contact.email } : {}),
+    ...(hasGeo ? { geo: { '@type': 'GeoCoordinates', latitude: item.geo.lat, longitude: item.geo.lng } } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
     address: {
       '@type': 'PostalAddress',
       streetAddress: item.address.street,

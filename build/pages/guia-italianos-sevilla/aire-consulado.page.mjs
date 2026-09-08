@@ -12,10 +12,12 @@
  * first). All Italian copy on this page is new — the artboard is ES-only.
  * See IMPLEMENTATION-LOG.md.
  */
-import { data, routes, routeOf, renderPage, writePage, esc, LOCALES } from '../../build.mjs';
+import { data, routes, routeOf, renderPage, writePage, esc, LOCALES, ORIGIN, fileDate } from '../../build.mjs';
 import { articleShell, articleJsonLd, officialLinksCallout, stepsList, documentsList } from './index.page.mjs';
 
 const ARTICLE_ID = 'aire';
+/** Honest dateModified: this module file's mtime — never an invented date. */
+const ARTICLE_DATE = fileDate(import.meta.url);
 
 const LEAD = {
   es: 'Si te has mudado a Sevilla por más de doce meses, tienes que inscribirte en el AIRE. Aquí está el trámite explicado por quien ya lo ha hecho, sin lenguaje administrativo.', // verbatim
@@ -199,7 +201,11 @@ export default {
         jsonld: articleJsonLd(locale, {
           headline: locale === 'es' ? 'AIRE y consulado' : 'AIRE e consolato',
           description: DESCRIPTION[locale],
+          url: `${ORIGIN}${alternates[locale]}`,
+          dateModified: ARTICLE_DATE,
         }, faq),
+        article: { modified: ARTICLE_DATE },
+        lastmod: ARTICLE_DATE,
         body,
       }));
     }
