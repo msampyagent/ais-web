@@ -1,0 +1,69 @@
+<!-- Header — extracted from AIS Navegacion.dc.html.
+     Resting 72px, compressed to 60px on scroll (header.js adds .is-scrolled).
+     Without JS the header stays at 72px and every link still works. -->
+<header class="site-header" id="site-header">
+  <div class="site-header__bar">
+
+    <a class="site-header__brand" href="{{homeHref}}">
+      <img class="site-header__logo" src="/assets/img/ais-logo.png"
+           alt="{{brandAlt}}" width="176" height="176">
+      <span class="tricolore tricolore--sm" aria-hidden="true"><i></i><i></i><i></i></span>
+    </a>
+
+    <nav class="nav-primary" aria-label="{{navLabel}}">
+      {{navPrimary}}
+    </nav>
+
+    <div class="site-header__utility">
+      <div class="lang-switch">
+        {{langSwitch}}
+      </div>
+      <a class="btn btn--primary" href="{{ctaHref}}">{{ctaLabel}}</a>
+      <button class="site-header__burger" type="button"
+              aria-expanded="false" aria-controls="mobile-menu"
+              data-mobile-open aria-label="{{menuOpenLabel}}">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+  {{dropdowns}}
+</header>
+
+<!-- Mobile sheet. Hidden until header.js opens it; it is inert without JS,
+     which is why every one of its links also lives in the footer. -->
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <div class="mobile-menu__bar">
+    <a href="{{homeHref}}">
+      <img src="/assets/img/ais-logo.png" alt="{{brandAlt}}" width="176" height="176"
+           style="height:38px;width:auto">
+    </a>
+    <button class="mobile-menu__close" type="button" data-mobile-close
+            aria-label="{{menuCloseLabel}}">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mobile-menu__lang">
+    <div class="lang-toggle">
+      {{langToggle}}
+    </div>
+  </div>
+
+  <nav class="mobile-menu__nav" aria-label="{{navLabel}}">
+    {{navMobile}}
+  </nav>
+
+  <div class="mobile-menu__foot">
+    <a class="btn btn--primary btn--block" href="{{ctaHref}}">{{ctaLabel}}</a>
+    <div class="mobile-menu__social">
+      {{socialIcons}}
+    </div>
+  </div>
+</div>

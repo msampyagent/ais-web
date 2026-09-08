@@ -1,0 +1,37 @@
+<!-- Footer — extracted from AIS Navegacion.dc.html.
+     --indaco block. Institutional names sit in --sabbia at full opacity:
+     they are text, so they never get an opacity reduction. -->
+<footer class="site-footer">
+  <img class="watermark watermark--footer" src="/assets/img/giralda.png" alt=""
+       aria-hidden="true" width="420" height="420"
+       style="bottom:-40px;right:72px;height:420px">
+
+  <div class="site-footer__inner">
+
+    <div class="site-footer__cols">
+      <div>
+        <img class="site-footer__logo" src="/assets/img/ais-logo.png"
+             alt="{{brandAlt}}" width="176" height="176">
+        <span class="tricolore" aria-hidden="true"
+              style="margin-bottom:16px"><i></i><i></i><i></i></span>
+        <p class="site-footer__tagline">{{footerTagline}}</p>
+      </div>
+      {{footerCols}}
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="site-footer__institutions">
+        {{institutions}}
+      </div>
+      <div class="site-footer__social">
+        {{socialIcons}}
+      </div>
+    </div>
+
+    <p class="site-footer__legal">
+      <span>{{copyright}}</span>
+      <a href="mailto:{{email}}">{{email}}</a>
+    </p>
+
+  </div>
+</footer>
