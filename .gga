@@ -30,29 +30,14 @@ PROVIDER="claude"
 #   FILE_PATTERNS="*.ts,*.tsx"
 #   FILE_PATTERNS="*.py"
 #   FILE_PATTERNS="*.go,*.mod"
-#
-# This project is a static site: hand-written HTML partials, vanilla CSS/JS,
-# the Node generator in build/, and the content JSON that feeds it.
-FILE_PATTERNS="*.html,*.css,*.js,*.mjs,*.json"
+FILE_PATTERNS="*.ts,*.tsx,*.js,*.jsx"
 
 # File patterns to exclude from review (comma-separated)
 # Default: none
 # Examples:
 #   EXCLUDE_PATTERNS="*.test.ts,*.spec.ts"
 #   EXCLUDE_PATTERNS="*_test.go,*.mock.ts"
-#
-# Matching: a pattern starting with "*" is a suffix match on the full path;
-# a pattern without one is a glob on the full path or on the basename.
-# That is why "1streview/*" excludes the whole directory.
-#
-#   1streview/*   design export: artboards, tool runtime, duplicated brief data.
-#                 Read-only source of truth, never edited here.
-#   *.dc.html     design artboards, in case any are moved out of 1streview/.
-#   es/*, it/*    generated site output. build/build.mjs is the thing worth
-#                 reviewing; its output is verified by the SEO/a11y pass,
-#                 Lighthouse and axe, not by a per-commit diff review.
-#                 Drop these two if pages ever get hand-written instead.
-EXCLUDE_PATTERNS="1streview/*,*.dc.html,es/*,it/*,*.min.js,*.min.css"
+EXCLUDE_PATTERNS="*.test.ts,*.spec.ts,*.test.tsx,*.spec.tsx,*.d.ts"
 
 # File containing code review rules
 # Default: AGENTS.md
@@ -65,8 +50,7 @@ STRICT_MODE="true"
 # Timeout in seconds for AI provider response
 # Default: 300 (5 minutes)
 # Increase for large changesets or slow connections
-# Raised: a Phase 0 commit touches the whole design system at once.
-TIMEOUT="600"
+TIMEOUT="300"
 
 # OpenCode provider: optional reasoning effort / variant
 # Examples: minimal, low, medium, high, max

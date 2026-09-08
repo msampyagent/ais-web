@@ -87,7 +87,7 @@ The site is bilingual with **Spanish as default**, symmetric `/es/` and `/it/` t
 
 ## Known gaps
 
-- **`sevilla-italia.png`** (hero skyline illustration) does not exist. Artboards use a placeholder; the site should ship a `--avorio` `<div>` with a commented-out `<img>` ready to swap, and the gap reported.
+- **`sevilla-italia.png`** (hero skyline illustration) now exists in `assets/img/` and is wired into the home hero.
 - **Six client questions in `PROMPT-claude-code.md` are unanswered**: deploy target and base path, form endpoint, membership fee and payment link, Eventbrite per-event links, whether the 2009–2024 blogspot is linked or migrated, and newsletter provider. Ask before building anything that depends on them.
 - **`gga` cannot read any config file on this machine.** It loads config with `source <(...)`, which silently no-ops on bash 3.2.57 — the macOS system bash its `#!/usr/bin/env bash` resolves to. No `.gga` is ever applied, not even the global one, so `PROVIDER` stays empty and the `.git/hooks/pre-commit` hook fails and blocks every commit. Until that is fixed upstream, commits here need `--no-verify`. The project `.gga` and `AGENTS.md` are themselves correct.
 - The Pages workflow triggers on push to `main`, but the GitHub remote is empty and `main` does not exist yet.
