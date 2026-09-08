@@ -91,6 +91,8 @@ The site is bilingual with **Spanish as default**, symmetric `/es/` and `/it/` t
 - **Six client questions in `PROMPT-claude-code.md` are unanswered**: deploy target and base path, form endpoint, membership fee and payment link, Eventbrite per-event links, whether the 2009–2024 blogspot is linked or migrated, and newsletter provider. Ask before building anything that depends on them.
 - **`gga` cannot read any config file on this machine.** It loads config with `source <(...)`, which silently no-ops on bash 3.2.57 — the macOS system bash its `#!/usr/bin/env bash` resolves to. No `.gga` is ever applied, not even the global one, so `PROVIDER` stays empty and the `.git/hooks/pre-commit` hook fails and blocks every commit. Until that is fixed upstream, commits here need `--no-verify`. The project `.gga` and `AGENTS.md` are themselves correct.
 - The Pages workflow triggers on push to `main`, but the GitHub remote is empty and `main` does not exist yet.
+- **`robots.txt` and `noindex` on preview builds.** Any Lighthouse run against the GitHub Pages preview (`https://<user>.github.io/<repo>/`) reports `is-crawlable` as a hard SEO 0. This is by design for preview builds (`IS_PREVIEW` is true under `BASE_PATH=/ais-web`). SEO must be measured on the production domain.
+- **GitHub Pages `Cache-Control` is fixed at `max-age=600`.** Lighthouse's `cache-insight` warning cannot be configured on GitHub Pages; it is a host limitation, not a code fix.
 
 ## SEO is a first-class deliverable
 
