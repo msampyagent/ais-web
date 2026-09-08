@@ -17,7 +17,7 @@
  * page-specific JSON-LD. See build/pages/README.md.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, cpSync, rmSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -32,7 +32,24 @@ const PAGES = join(__dirname, 'pages');
  * ------------------------------------------------------------------------- */
 
 /** Production origin. Change here only — everything else derives from it. */
-export const ORIGIN = 'https://italianiasiviglia.com';
+export const ORIGIN = process.env.ORIGIN ?? 'https://italianiasiviglia.com';
+
+/**
+ * Sub-path the site is served from, without a trailing slash.
+ *
+ * Empty for production (custom domain, served at the root). A GitHub Pages
+ * *project* site serves at https://<user>.github.io/<repo>/, so a preview
+ * build needs BASE_PATH=/ais-web or every absolute /assets/... 404s.
+ *
+ *   BASE_PATH=/ais-web node build/build.mjs
+ */
+export const BASE_PATH = (process.env.BASE_PATH ?? '').replace(/\/$/, '');
+
+/** A preview build must never compete with production in the index. */
+export const IS_PREVIEW = BASE_PATH !== '' || process.env.PREVIEW === '1';
+
+/** Where generated HTML lands. docs/ is what GitHub Pages can serve directly. */
+const OUT = join(ROOT, process.env.OUT_DIR ?? 'docs');
 
 export const LOCALES = ['es', 'it'];
 export const DEFAULT_LOCALE = 'es';
@@ -408,6 +425,10 @@ export function renderPage(page) {
     jsonld: ld.map(ldScript).join('\n'),
   });
 
+  const robotsMeta = IS_PREVIEW
+    ? '<meta name="robots" content="noindex, nofollow">\n'
+    : '';
+
   const header = fill(TPL.header, {
     homeHref: routeOf('home', locale),
     brandAlt: esc(t.brandAlt),
@@ -443,10 +464,10 @@ export function renderPage(page) {
     cookiePolicyHref: routeOf('cookies', locale),
   });
 
-  return `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="${locale}">
 <head>
-${head}
+${robotsMeta}${head}
 </head>
 <body>
 <a class="skip-link" href="#main">${esc(t.skip)}</a>
@@ -463,6 +484,22 @@ ${(page.scripts ?? []).map((s) => `<script src="${s}" type="module"></script>`).
 </body>
 </html>
 `;
+
+  return withBasePath(html);
+}
+
+/**
+ * Prefix every root-relative URL with BASE_PATH.
+ *
+ * Applied once, here, rather than asking every partial and every page module
+ * to remember a {{base}} token — a page that forgets would 404 only on the
+ * preview deploy, which is exactly where nobody looks. Absolute URLs
+ * (canonical, hreflang, og:url) start with "https:" and are left alone: they
+ * must keep pointing at production.
+ */
+function withBasePath(html) {
+  if (!BASE_PATH) return html;
+  return html.replace(/\b(href|src|action)="\/(?!\/)/g, `$1="${BASE_PATH}/`);
 }
 
 /* ---------------------------------------------------------------------------
@@ -472,7 +509,7 @@ ${(page.scripts ?? []).map((s) => `<script src="${s}" type="module"></script>`).
 const written = [];
 
 export function writePage(urlPath, html) {
-  const out = join(ROOT, urlPath.replace(/^\//, ''), 'index.html');
+  const out = join(OUT, urlPath.replace(/^\//, ''), 'index.html');
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, html, 'utf8');
   written.push(urlPath);
@@ -524,8 +561,8 @@ ${LOCALES.map((l) => `<link rel="alternate" hreflang="${l}" href="${ORIGIN}/${l}
 </body>
 </html>
 `;
-  mkdirSync(ROOT, { recursive: true });
-  writeFileSync(join(ROOT, 'index.html'), html, 'utf8');
+  mkdirSync(OUT, { recursive: true });
+  writeFileSync(join(OUT, 'index.html'), html, 'utf8');
 }
 
 function writeSitemap() {
@@ -557,12 +594,29 @@ ${links}
 ${urls.join('\n')}
 </urlset>
 `;
-  writeFileSync(join(ROOT, 'sitemap.xml'), xml, 'utf8');
+  writeFileSync(join(OUT, 'sitemap.xml'), xml, 'utf8');
+}
+
+/**
+ * Copy static assets into the output tree.
+ *
+ * GitHub Pages serves a single directory, so assets/ has to live inside it
+ * rather than beside it. Source of truth stays at the repo root.
+ */
+function copyAssets() {
+  cpSync(join(ROOT, 'assets'), join(OUT, 'assets'), { recursive: true });
 }
 
 function writeRobots() {
-  writeFileSync(join(ROOT, 'robots.txt'),
-    `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`, 'utf8');
+  // A preview build asks robots to stay out entirely.
+  const body = IS_PREVIEW
+    ? 'User-agent: *\nDisallow: /\n'
+    : `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`;
+  writeFileSync(join(OUT, 'robots.txt'), body, 'utf8');
+
+  // Stop GitHub Pages running the output through Jekyll, which would drop
+  // any path segment beginning with an underscore.
+  writeFileSync(join(OUT, '.nojekyll'), '', 'utf8');
 }
 
 /* ---------------------------------------------------------------------------
@@ -570,6 +624,10 @@ function writeRobots() {
  * ------------------------------------------------------------------------- */
 
 async function main() {
+  // Start from a clean tree: a page removed from build/pages/ must disappear
+  // from the output too, rather than lingering as an orphan Pages can serve.
+  rmSync(OUT, { recursive: true, force: true });
+
   const modules = findPageModules(PAGES);
 
   if (!modules.length) {
@@ -585,6 +643,7 @@ async function main() {
     await page.build();
   }
 
+  copyAssets();
   writeRootRedirect();
   writeSitemap();
   writeRobots();
